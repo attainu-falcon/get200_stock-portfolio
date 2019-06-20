@@ -1,0 +1,26 @@
+{
+  "name": "get200_stock-portfolio",
+  "version": "1.0.0",
+  "description": "stockportfolio",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/attainu-falcon/get200_stock-portfolio.git"
+  },
+  "author": "get200",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/attainu-falcon/get200_stock-portfolio/issues"
+  },
+  "homepage": "https://github.com/attainu-falcon/get200_stock-portfolio#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "express-session": "^1.16.2",
+    "mongodb": "^3.2.7"
+  }
+}
