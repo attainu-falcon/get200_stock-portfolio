@@ -5,10 +5,8 @@ var path = require('path');
 
 var ObjectId = require('mongodb').ObjectID;
 
-router.use(express.static('public'));
 
-router.get('/',function(req,res){
-    res.sendfile('public/home.html');
-})
+
+
 
 module.exports = router;
