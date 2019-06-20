@@ -8,7 +8,7 @@ var ObjectId = require('mongodb').ObjectID;
 router.use(express.static('public'));
 
 router.get('/',function(req,res){
-       res.send('show portfolio');
+       res.sendfile('public/portfolio.html');
 });
 
 

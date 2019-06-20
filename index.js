@@ -18,7 +18,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //    app.locals.db = client.db('attainu');
 //
 //});
-
+app.use(express.static('public'));
+app.get('/',function(req,res){
+    res.sendfile('public/home.html');
+})
 
 app.use('/homepage',homepage);
 app.use('/portfoliopage',portfolio);
