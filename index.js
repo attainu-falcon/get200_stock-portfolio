@@ -1,31 +1,81 @@
 var express = require('express');
+var session = require('express-session');
 var app = express();
 //var hbs = require('express-handlebars');
 //var path = require('path');
 var bodyParser = require('body-parser');
-//var mongoClient = require('mongodb').MongoClient;
+var mongoClient = require('mongodb').MongoClient;
 var homepage = require('./homepage');
 var portfolio = require('./portfoliopage');
 var livemarket = require('./livemarket');
 var whystocks = require('./whystocks');
+var db;
+var data;
+mongoClient.connect('mongodb://localhost:27017/stockpileusers',function(err , client){    
+    if(err) throw err;
+   
+    app.locals.db = client.db('stockpileusers');
+    app.locals.db.collection('users').find({}).toArray(function(err ,result){
+        if(err) {throw err;
+        }
+        data = result;
+        console.log(data);
+    });       
 
-app.use(bodyParser.urlencoded({ extended: true }));
-
-//mongoClient.connect('mongodb://localhost:27017/attainu',function(err , client){
+});
+//app.get('/usersdb',function(req,res){
+//    app.locals.db.collection('users').find({}).toArray(function(err ,result){
+//        if(err) {throw err;
+//        }
+//        var data = result;
+//        console.log(data);
+//        res.json(result);
+//    })
 //    
-//    if(err) throw err;
-//   
-//    app.locals.db = client.db('attainu');
-//
-//});
+//})
+app.use(session({
+    secret:"get200project top secret!"
+}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
+
 app.get('/',function(req,res){
-    res.sendfile('public/home.html');
+    res.sendfile('public/signin.html');
 })
 
+app.post('/auth',function(req,res){
+    console.log(req.body);
+      for(var i=0;i<data.length;i++){
+          if(req.body.email === data[i].email && req.body.password === data[i].password){
+              console.log(req.body);
+              session.login = true;
+          }
+      }
+          if(session.login == true){
+              res.redirect('/user');
+          }
+          else{
+              res.redirect('/');
+          }
+      
+});
+
+
+app.get('/user',function(req,res){
+    if(session.login == true){
+       res.redirect('/homepage');
+    }
+    else{
+        res.redirect('/signin');
+    }
+})
+
+app.post('/logout',function(req,res){
+    req.session.destroy();
+    res.redirect('/');
+});
 app.use('/homepage',homepage);
 app.use('/portfoliopage',portfolio);
 app.use('/livemarket',livemarket);
 app.use('/whystocks',whystocks);
-
 app.listen(3000);
