@@ -23,19 +23,12 @@ mongoClient.connect('mongodb://localhost:27017/stockpileusers',function(err , cl
     });       
 
 });
-//app.get('/usersdb',function(req,res){
-//    app.locals.db.collection('users').find({}).toArray(function(err ,result){
-//        if(err) {throw err;
-//        }
-//        var data = result;
-//        console.log(data);
-//        res.json(result);
-//    })
-//    
-//})
+
 app.use(session({
+    name:"cookie",
     secret:"get200project top secret!"
 }));
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
@@ -48,11 +41,13 @@ app.post('/auth',function(req,res){
       for(var i=0;i<data.length;i++){
           if(req.body.email === data[i].email && req.body.password === data[i].password){
               console.log(req.body);
-              session.login = true;
+              req.session.login = true;
+              app.locals.login = req.session.login;
+             
           }
       }
-          if(session.login == true){
-              res.redirect('/user');
+          if(req.session.login == true){
+              res.redirect('/homepage');
           }
           else{
               res.redirect('/');
@@ -60,20 +55,6 @@ app.post('/auth',function(req,res){
       
 });
 
-
-app.get('/user',function(req,res){
-    if(session.login == true){
-       res.redirect('/homepage');
-    }
-    else{
-        res.redirect('/signin');
-    }
-})
-
-app.post('/logout',function(req,res){
-    req.session.destroy();
-    res.redirect('/');
-});
 app.use('/homepage',homepage);
 app.use('/portfoliopage',portfolio);
 app.use('/livemarket',livemarket);
