@@ -1,0 +1,178 @@
+html {
+    overflow: hidden;
+}
+body {
+    margin: 0;
+    font-size: 26px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #ffffff;
+    height: 100vh;
+    perspective: 1px;
+    transform-style: preserve-3d;
+    overflow-x:hidden;
+    overflow-y:auto;
+    
+}
+.parallax-wrapper {
+    width: 100vw;
+    height:100vh;
+    padding-top:20vh;
+    box-sizing: border-box;
+    transform-style: preserve-3d;
+}
+.parallax-wrapper2{
+    width: 100vw;
+    height:100vh;
+    padding-top:20vh;
+    box-sizing: border-box;
+    transform-style: preserve-3d;
+}
+.parallax-wrapper::before {
+    content:"";
+    width: 100vw;
+    height: 100vh;
+    top:0;
+    left:0;
+    background-image: url("https://i.ibb.co/DGNpPnC/signbackground-v1.jpg");
+    position: absolute;
+    z-index: -1;
+    transform:translateZ(-1px) scale(2);
+}
+.parallax-wrapper2::before{
+
+    content:"";
+    width: 100vw;
+    height: 100vh;
+    top:0;
+    left:0;
+    background-image: url("https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1002&q=80");
+    position: absolute;
+    z-index: -1;
+    transform:translateZ(-1px) scale(2);
+
+}
+.regular-wrapper {
+    width: 100vw;
+    height:100vh;
+    padding-top:20vh;
+    background-image: url("http://www.wherelovegrows.org/wp-content/uploads/2014/01/1920x1080-light-blue-solid-color-background.jpg");
+    z-index: 2;
+    position: relative;
+}
+.content {
+    margin: 0 auto;
+    padding: 50px;
+    width: 50%;
+    background: #E6E6FA;
+    opacity: 0.8;
+    /* box-shadow:0 15px 25px rgba(0, 0, 0, .5); */
+    border-radius:10px;
+    color: #484D46;
+    
+} 
+.loginbox{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:400px;
+    padding:40px;
+    background:rgba(0, 0, 0, .8);
+    box-sizing:border-box;
+    box-shadow:0 15px 25px rgba(0, 0, 0, .5);
+    border-radius:10px;
+    line-height: 1;
+    
+}
+.loginbox p,.signupbox p{
+    font-style: normal;
+    font-size: 20px;
+}
+.signupbox{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:400px;
+    padding:40px;
+    background:rgba(0, 0, 0, .8);
+    box-sizing:border-box;
+    box-shadow:0 15px 25px rgba(0, 0, 0, .5);
+    border-radius:10px;
+    display: none;
+    line-height: 1;
+    
+}
+
+.loginbox h1,
+.signupbox h1{
+    margin:3px 3px 40px;
+    letter-spacing:2px;
+    color:#ffff;
+    text-align:center;
+}
+.loginbox .inputbox,
+.signupbox .inputbox{
+  position:relative;
+}
+.loginbox .inputbox input, .signupbox .inputbox input{
+    width: 100%;
+    padding:10px 0;
+    font-size:16px;
+    color:#ffff;
+    margin-bottom:30px;
+    border:none;
+    border-bottom:1px solid #ffff;
+    outline:none;
+    background:transparent;
+}
+.loginbox .inputbox label,
+.signupbox .inputbox label{
+   position: absolute;
+   top:0;
+   left:0;
+   padding:10px 0;
+   font-size:18px;
+   letter-spacing:2px;
+   color:#ffff;
+   pointer-events:none;
+   transition: .5s;
+
+}
+.loginbox .inputbox input:focus ~label,
+.loginbox .inputbox input:valid ~label{
+  top:-25px;
+  left:0;
+  color:#3dc1d3;
+  font-size:22px;
+}
+.signupbox .inputbox input:focus ~label,
+.signupbox .inputbox input:valid ~label{
+    top:-25px;
+    left:0;
+    color:#3dc1d3;
+    font-size:22px;
+}
+.loginbox button[type="submit"],
+.signupbox button[type="submit"]{
+    background:transparent;
+    border:none;
+    outline:none;
+    color:#fff;
+    background:#4cd137;
+    padding:10px 20px;
+    cursor:pointer;
+    width:170px;
+    height:55px;
+    font-size:25px;
+    letter-spacing:2px;
+    border-radius:5px;
+}
+.loginbox button[type="submit"]:hover, .signupbox button[type="submit"]:hover{
+  background:#273c75;
+  color:#f5f6fa;
+}
+#errortag1,#errortag2,#errortag3,#errortag4{
+   color:#e15f41;
+   font-size:15px;
+}
