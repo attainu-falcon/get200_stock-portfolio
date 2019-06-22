@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>StockPile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative" rel="stylesheet">
+    <link rel="stylesheet" href="styles/login.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!--Header-->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-fixed-top">
+            <div class="mx-auto">
+                   <a class="navbar-brand mx-auto" href="#"><h3 id="sitename" style="font-family: 'Cinzel Decorative', cursive"><span><i class="fa fa-line-chart"></i></span> StockPile</h3></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+                <ul class="navbar-nav ml-auto">
+                    
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#"><i class="fa fa-user-circle" style="font-size:48px"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <br>
+        <br>
+<div class="parallax">
+        
+        <div class="parallax-wrapper">
+            <div class="content">
+                <p>Monitor your financial instruments and track your holdings with Stockpile portfolios.<br>
+                    Monitor your portfolio holdings and performance.<br>
+                    Access your watchlist via PC, Tablet or Phone.<br>
+                    Track multiple watchlists.<br>
+                    Include stocks, funds, indexes, currencies and commodities.<br>
+                    Add to your portfolio from each instrument page or from within the portfolio itself.
+                    </p>
+            </div>
+        </div>
+        
+<div class="regular-wrapper">
+    <div class="content">
+        <p>Monitor your financial instruments and track your holdings with Stockpile portfolios.<br>
+            Monitor your portfolio holdings and performance.<br>
+            Access your watchlist via PC, Tablet or Phone.<br>
+            Track multiple watchlists.<br>
+            Include stocks, funds, indexes, currencies and commodities.<br>
+            Add to your portfolio from each instrument page or from within the portfolio itself.
+            </p>
+          
+     </div>
+     
+  </div>
+</div>
+<div class="parallax">
+        
+    <div class="parallax-wrapper2">
+        <div class="content">
+            <p>Monitor your financial instruments and track your holdings with Stockpile portfolios.<br>
+                Monitor your portfolio holdings and performance.<br>
+                Access your watchlist via PC, Tablet or Phone.<br>
+                Track multiple watchlists.<br>
+                Include stocks, funds, indexes, currencies and commodities.<br>
+                Add to your portfolio from each instrument page or from within the portfolio itself.
+                </p>
+        </div>
+    </div>
+    
+<div class="regular-wrapper">
+          
+<div class="loginbox">
+     <form action="/auth" class="box" method="POST">
+       <h1>LOGIN</h1>
+       <div class="inputbox">  
+       <input id='email1' autocomplete="off" type="text" name="email" required><label>Email</label>
+       <br>
+       <span id='errortag1'></span>
+       </div>
+       <br><br>
+ 
+       <div class="inputbox">         
+       <input id ="pass1" autocomplete="off" type="password" name="password" required><label>Password</label>
+       <br>
+       <span id='errortag2'></span>
+       </div>
+       
+       <br><br>
+      &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; <button type="submit" class="btn btn-success signin_btn"/>Sign in</button><br><br>
+      <p>Not a registered user? <a id="register" class="text-danger" href="#">Register here</a></p>
+       </form>
+</div>
+  <div class="signupbox">
+    <form  action="" class="box" method="POST">
+      <h1>SIGNUP</h1>
+      <div class="inputbox">  
+        <input id='email2' autocomplete="off" type="email" required><label>Email ID</label>
+        <br>
+        <span id='errortag3'></span>
+        </div>
+        <br><br>
+      <div class="inputbox">         
+      <input id ="pass2" autocomplete="off" type="password" required><label>Password</label>
+      <br>
+      <span id='errortag4'></span>
+      </div>
+      
+      <br><br>
+     &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; <button type="submit" class="btn btn-success signup_btn" id="signup">Sign Up</button><br><br>
+     <p>Already a User?<a id="sign" class="text-danger" href="#"> Login</a></p>
+      </form>
+
+      
+ </div>
+ 
+</div>
+</div>
+<!-- Footer -->
+<footer class="page-footer font-small bg-dark" style="height:3.5rem;width:100%">
+
+       
+    <div class="container-fluid text-center" style="padding-top: 10px;">
+  
+     
+  
+            
+            <a class="fb-ic">
+                    <i class="fa fa-facebook fa-lg text-white mr-md-5 mr-3"></i>
+            </a>
+            
+            <a class="tw-ic">
+                    <i class="fa fa-twitter fa-lg text-white mr-md-5 mr-3"></i>
+            </a>
+  
+           
+            <a class="li-ic">
+                    <i class="fa fa-linkedin fa-lg text-white mr-md-5 mr-3"></i>
+            </a>
+          
+          
+  
+    </div>
+    <!-- Footer Elements -->
+  
+    <div class="row"></div>
+  
+  </footer>
+  <!-- Footer -->
+    
+    
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./scripts/signin.js"></script>
+</body>
+</html>
