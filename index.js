@@ -59,4 +59,6 @@ app.use('/homepage',homepage);
 app.use('/portfoliopage',portfolio);
 app.use('/livemarket',livemarket);
 app.use('/whystocks',whystocks);
+
+
 app.listen(3000);
