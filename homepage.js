@@ -15,7 +15,7 @@ router.get('/',function(req,res){
     }
 });
 router.post('/logout',function(req,res){
-    req.app.locals.login == false;
+    req.app.locals.login = false;
     req.session = null;
     res.redirect('/');
 });
