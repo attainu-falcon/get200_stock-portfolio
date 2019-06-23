@@ -19,23 +19,23 @@
             <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="home.html">Home</a>
+                        <a class="nav-link" href="/homepage">Home</a>
                     </li>
-                    <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="portfolio.html" role="button" aria-haspopup="true" aria-expanded="false">PortFolio</a>
+                    <li class="nav-item dropdown active">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="/portfoliopage" role="button" aria-haspopup="true" aria-expanded="false">PortFolio</a>
                             <div class="dropdown-menu bg-dark">
-                              <a class="dropdown-item" href="portfolio.html">Show Portfolio</a>
-                              <a class="dropdown-item" href="#">Add PortFolio</a>
+                              <a class="dropdown-item" href="/portfoliopage">Show Portfolio</a>
+                              <a class="dropdown-item" href="/portfoliopage">Add PortFolio</a>
                             </div>
                           </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="livemarket.html">Live Market</a>
+                        <a class="nav-link" href="/livemarket">Live Market</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="whystocks.html">Forum</a>
+                        <a class="nav-link" href="/whystocks">Forum</a>
                     </li>
                     <li class="nav-item">
-                            <a class="nav-link" href="aboutus.html">About Us</a>
+                            <a class="nav-link" href="/aboutus">About Us</a>
                     </li>
                 </ul>
             </div>
@@ -49,13 +49,15 @@
                 <ul class="navbar-nav ml-auto">
                     
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#"><i class="fa fa-user-circle" style="font-size:48px"></i></a>
+                        <form action="/portfolio/logout" method="post">
+                            <button type="submit"class="btn btn-secondary btn-md"><i class="fa fa-power-off"></i> Logout</button>
+                        </form>
                     </li>
                 </ul>
             </div>
         </nav>
-        <!--Header-->
-        <!-- Footer -->
+   <!--Header-->
+   <!-- Footer -->
 <footer class="page-footer font-small bg-dark fixed-bottom" style="height:3.5rem;width:100%">
 
        
@@ -87,7 +89,6 @@
       </footer>
       <!-- Footer -->
 
-
-
 </body>
+
 </html>
