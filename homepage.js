@@ -8,14 +8,14 @@ var ObjectId = require('mongodb').ObjectID;
 router.use(express.static('public'));
 
 router.get('/',function(req,res){
-    if(req.app.locals.login == true)
+    if(req.app.locals.login === true)
     res.sendfile('home.html');
     else {
         res.sendfile('public/signin.html');
     }
 });
 router.post('/logout',function(req,res){
-    req.app.locals.login == false;
+    req.app.locals.login = false;
     req.session = null;
     res.redirect('/');
 });
