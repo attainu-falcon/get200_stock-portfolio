@@ -1,0 +1,53 @@
+function symbolList(){
+    $.ajax({
+      
+      'url':'/userportfolio',
+      'type':'GET',
+      'datatype':'JSON',
+      success:function(result){
+        var list = result.watchlist;
+        console.log(result.watchlist);
+        var symbols = [];
+        for(var i=0;i<list.length;i++){
+            symbols.push(list[i].symbol);
+        }
+        
+        var content;
+        for(i=0;i<list.length;i++){
+          $.ajax({
+             'url':'https://financialmodelingprep.com/api/v3/company/profile/'+symbols[i],
+             'type':'GET',
+             'datatype':'JSON',
+             success:function(data){
+               console.log(data);
+              content = '<tr>'
+              content += '<td class="col-xs-4">'+data.profile["companyName"]+'</td>';
+              content += '<td class="col-xs-2">'+data.symbol+'</td>';
+              content += '<td class="col-xs-2">'+data.profile["price"]+'</td>';
+              content += '<td class="col-xs-2">'+data.profile["range"]+'</td>';
+            
+              if(data.profile["changes"]<0){
+                  content += '<td class="col-xs-2" style="color:red">'+data.profile["changes"]+'</td>';
+              content += '<td class="col-xs-2" style="color:red">'+data.profile["changesPercentage"]+'</td>';
+              }
+              else
+              {
+                 content += '<td class="col-xs-2" style="color:green">'+data.profile["changes"]+'</td>';
+                content += '<td class="col-xs-2"  style="color:green">'+data.profile["changesPercentage"]+'</td>';
+              }
+              content += '<td class="col-xs-2">'+data.profile["exchange"]+'</td>';
+  
+              content += '<td class="col-xs-2" style="font-size:24px">'+'<button class="btn btn-dark">'+'<i class="fa fa-plus-square">'+'</i>'+'</button>'+'</td>';
+              content += '<td class="col-xs-2" style="font-size:24px">'+'<button class="btn btn-dark">'+'<i class="fa fa-trash">'+'</i>'+'</button>'+'</td>';
+  
+              content += '</tr>'
+              $('tbody').append(content);
+              }
+             });
+      }
+        }
+       });
+  }
+  symbolList();
+  
+  
