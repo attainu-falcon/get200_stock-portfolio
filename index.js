@@ -42,6 +42,7 @@ app.post('/auth',function(req,res){
           if(req.body.email === data[i].email && req.body.password === data[i].password){
               console.log(req.body);
               req.session.login = true;
+              app.locals.user = data[i].email;
               app.locals.login = req.session.login;
              
           }
