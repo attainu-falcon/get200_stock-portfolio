@@ -8,7 +8,7 @@ var ObjectId = require('mongodb').ObjectID;
 router.use(express.static('public'));
 
 router.get('/',function(req,res){
-    if(req.app.locals.login == true){
+    if(req.session.login == true){
         res.sendfile('whystocks.html');
     }
     else{
@@ -17,7 +17,6 @@ router.get('/',function(req,res){
     
 });
 router.post('/logout',function(req,res){
-    req.app.locals.login = false;
     req.session.destroy();
     res.sendfile('public/signin.html');
 });
