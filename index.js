@@ -47,7 +47,8 @@ app.post('/auth',function(req,res){
               app.locals.username = req.body.email;
                 console.log(app.locals.username);
               req.session.login = true;
-              
+             
+
              
           }
       }
