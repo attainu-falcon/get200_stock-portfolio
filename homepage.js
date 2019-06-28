@@ -1,6 +1,9 @@
 var express =require('express');
+
 var router = express.Router();
+
 var path = require('path');
+
 
 var ObjectId = require('mongodb').ObjectID;
 
@@ -13,8 +16,8 @@ router.get('/',function(req,res){
         res.sendfile('public/signin.html');
     }
 });
-router.post('/logout',function(req,res){
-    req.session.destroy();
+router.post('/logout',function(req,res)
+   req.session.destroy();
     res.redirect('/');
 });
 
