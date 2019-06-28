@@ -1,0 +1,88 @@
+#fromAmount,
+#toAmount,
+#from,
+#to{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    height:50%;
+    font-size: 12px;
+  }
+  
+  #fromAmount:focus {
+    border: 3px solid #555;
+  }
+
+  .card-block {
+    min-height: 300px;
+}
+.portfoliocards { 
+    display: flex;    
+    overflow-x: auto;
+    
+}
+.portfoliocards card {    
+  margin-right: 30px;
+}
+.portfoliocards card,
+.portfoliocards:focus,
+.portfoliocards:hover {    
+ visibility: visible;
+}
+@keyframes ticker {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-100%, 0, 0); }
+  }
+  .tcontainer{
+    width: 100%;
+    overflow: hidden;
+    
+  }
+  .ticker-wrap {
+    width: 100%;
+    padding-left: 100%;
+    background-color: #eee;
+    height:20%;
+  }
+  .ticker-move {
+    display: inline-block;
+    white-space: nowrap;
+    padding-right: 100%;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-name: ticker;
+    animation-duration: 150s;
+  }
+  .ticker-move:hover{
+    animation-play-state: paused;
+  }
+  .ticker-item{
+    display: inline-block;
+    padding: 0 1rem;
+  }
+  .vl{
+    display:inline-block;
+    margin-top:6px;
+  
+  }
+  .card-block {
+    min-height: 300px;
+}
+.watchlistcards { 
+    display: flex;    
+    overflow-x: auto;
+    
+}
+.watchlistcards card {    
+  margin-right: 30px;
+}
+.watchlistcards card,
+.watchlistcards:focus,
+.watchlistcards:hover {    
+ visibility: visible;
+}
