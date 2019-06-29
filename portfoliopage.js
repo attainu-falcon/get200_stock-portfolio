@@ -18,8 +18,9 @@ router.get('/',function(req,res){
 
 
 router.get('/addportfolio',function(req,res){
+
     if(req.session.login == true){
-        res.sendfile('portfolio.html');
+      res.sendfile('portfolio.html');
     }
     else{
         res.sendfile('public/signin.html');

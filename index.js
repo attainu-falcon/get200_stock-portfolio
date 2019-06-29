@@ -8,6 +8,7 @@ var mongoClient = require('mongodb').MongoClient;
 var homepage = require('./homepage');
 var portfolio = require('./portfoliopage');
 var livemarket = require('./livemarket');
+var watchlist = require('./watchlist');
 var whystocks = require('./whystocks');
 var db;
 var data;
@@ -20,10 +21,13 @@ mongoClient.connect('mongodb://localhost:27017/stockpileusers', function (err, c
             throw err;
         }
         data = result;
-        // console.log(data);
-    });
+      //  console.log(data);
+    });       
+
 
 });
+
+
 
 app.use(session({
     name: "cookie",
@@ -39,6 +43,7 @@ app.get('/', function (req, res) {
     res.sendfile('public/signin.html');
     }
 })
+
 
 app.post('/auth', function (req, res) {
     console.log(req.body);
@@ -83,7 +88,10 @@ app.get('/userwatchlist', function (req, res) {
 app.use('/homepage', homepage);
 app.use('/portfoliopage', portfolio);
 app.use('/livemarket', livemarket);
+app.use('/watchlist',watchlist);
 app.use('/whystocks', whystocks);
+
+
 
 
 app.listen(3000);

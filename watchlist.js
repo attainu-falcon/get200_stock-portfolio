@@ -8,18 +8,18 @@ var ObjectId = require('mongodb').ObjectID;
 router.use(express.static('public'));
 
 router.get('/',function(req,res){
-
-    if(req.session.login == true){
-
-        res.sendfile('whystocks.html');
-    }
-    else{
-        res.sendfile('public/signin.html');
-    }
-    
+     if(req.session.login === true){
+         res.sendfile('watchlist.html');
+     }
+     else{
+         res.sendfile('public/signin.html');
+     }
 });
+
 router.post('/logout',function(req,res){
+    
     req.session.destroy();
-    res.sendfile('public/signin.html');
+    res.redirect('/');
 });
+
 module.exports = router;
