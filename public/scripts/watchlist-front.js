@@ -1,12 +1,17 @@
+/**
+ * code to display user watchlist
+ * coded by harika thipparthi
+ */
+
 function symbolList(){
     $.ajax({
       
-      'url':'/userportfolio',
+      'url':'../userwatchlist',
       'type':'GET',
       'datatype':'JSON',
       success:function(result){
-        var list = result.watchlist;
-        console.log(result.watchlist);
+        var list = result;
+        console.log(result);
         var symbols = [];
         for(var i=0;i<list.length;i++){
             symbols.push(list[i].symbol);
@@ -36,8 +41,6 @@ function symbolList(){
                 content += '<td class="col-xs-2"  style="color:green">'+data.profile["changesPercentage"]+'</td>';
               }
               content += '<td class="col-xs-2">'+data.profile["exchange"]+'</td>';
-  
-              content += '<td class="col-xs-2" style="font-size:24px">'+'<button class="btn btn-dark">'+'<i class="fa fa-plus-square">'+'</i>'+'</button>'+'</td>';
               content += '<td class="col-xs-2" style="font-size:24px">'+'<button class="btn btn-dark">'+'<i class="fa fa-trash">'+'</i>'+'</button>'+'</td>';
   
               content += '</tr>'

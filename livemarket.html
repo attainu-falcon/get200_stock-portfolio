@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="refresh" content="30"/>
 
     <title>Live Market</title>
     <link rel="icon" href="https://i.ibb.co/PzMJhpt/faviconlogo.png" type="image/icon type">
@@ -16,7 +17,7 @@
 </head>
 <body>
     <!--Header-->
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
             <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
@@ -61,9 +62,84 @@
             </div>
         </nav>
      <!---Header-->
-
+     <br>
+     <!--Livemarket Container-->
+     <div class="row">
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-header bg-dark text-white mx-auto">
+                  <h4 class="card-title">Top Gainers:</h4>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-hover table-dark table-bordered table-fixed tablesorter" id="r1">
+                      <thead class="bg-info text-white">
+                        <tr>
+                          <th>Symbol</th>
+                          <th>Company name</th>
+                          <th>Price</th>
+                          <th>Change</th>
+                          <th class="text-center">Chng%</th>
+                        </tr>
+                      </thead>
+                      <tbody id="gainers"></tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+                <div class="col-sm-6">
+                  <div class="card">
+                    <div class="card-header bg-dark text-white mx-auto">
+                      <h4 class="card-title">Top Loosers:</h4>
+                    </div>
+                    <div class="card-body">
+                      <div class="table-responsive">
+                        <table class="table table-hover table-dark table-bordered tablesorter table-fixed" id="r1">
+                          <thead class="bg-info text-white">
+                            <tr>
+                              <th>Symbol</th>
+                              <th>Company name</th>
+                              <th>Price</th>
+                              <th>Change</th>
+                              <th class="text-center">Chng%</th>
+                            </tr>
+                          </thead>
+                          <tbody id="loosers"></tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+      
+          </div>
+          <br>
+     <div class="row">
+            <header class="w-100 mx-auto bg-dark text-center"><h2><a href="" class="text-white">Live Market</a></h2></header>
+            <div class="container mx-auto">
+                    <table class="table table-hover table-dark table-bordered table-fixed mx-auto" style="font-size:12px">
+                    <thead class="bg-info text-white" style="z-index:1">
+                      <tr>
+                        <th class="col-xs-8 bg-info">Company Name</th>
+                        <th class="col-xs-2 bg-info">Symbol</th>
+                        <th class="col-xs-2 bg-info">Industry</th>
+                        <th class="col-xs-2 bg-info">Sector</th>
+                        <th class="col-xs-2 bg-info">Price</th>
+                        <th class="col-xs-2 bg-info">Average Volume</th>
+                        <th class="col-xs-2 bg-info">Market Cap</th>
+                        <th class="col-xs-2 bg-info">Range</th>
+                        <th class="col-xs-2 bg-info">Changes</th>
+                        <th class="col-xs-2 bg-info">Change Percentage</th>
+                        <th class="col-xs-2 bg-info">Exchange</th>
+                      </tr>
+                    </thead>
+                    <tbody id="livemarket">
+                    </tbody>
+                    </table>
+     </div>
     <!-- Footer -->
-<footer class="page-footer font-small bg-dark fixed-bottom" style="height:3.5rem;width:100%">
+<footer class="page-footer font-small bg-dark" style="height:3.5rem;width:100%">
 
        
         <div class="container-fluid text-center" style="padding-top: 10px;">
@@ -93,6 +169,9 @@
       
       </footer>
       <!-- Footer -->
-
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous">
+  </script>
+  <script src="scripts/market.js"></script>
 </body>
 </html>

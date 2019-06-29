@@ -1,103 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
     <title>Home Page</title>
-    <link rel="icon" href="https://i.ibb.co/PzMJhpt/faviconlogo.png" type="image/icon type">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</head>
-<body>
+    <link
+      rel="icon"
+      href="https://i.ibb.co/PzMJhpt/faviconlogo.png"
+      type="image/icon type"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Cinzel+Decorative"
+      rel="stylesheet"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="styles/home.css">
+  </head>
+  <body>
     <!--Header-->
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-            <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/homepage">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="/portfoliopage" role="button" aria-haspopup="true" aria-expanded="false">PortFolio</a>
-                            <div class="dropdown-menu bg-dark">
-                              <a class="dropdown-item" href="/portfoliopage">Show Portfolio</a>
-                              <a class="dropdown-item" href="/portfoliopage">Add PortFolio</a>
-                            </div>
-                          </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/livemarket">Live Market</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/watchlist">Watch List</a>
-                </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/whystocks">Forum</a>
-                    </li>
-                    <li class="nav-item">
-                            <a class="nav-link" href="/aboutus">About Us</a>
-                    </li>
-                    
-                </ul>
-            </div>
-            <div class="mx-auto order-0">
-                   <a class="navbar-brand mx-auto" href="#"><h3 id="sitename" style="font-family: 'Cinzel Decorative', cursive"><span><i class="fa fa-line-chart"></i></span> StockPile</h3></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
-            <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-                <ul class="navbar-nav ml-auto">
-                    
-                    <li class="nav-item">
-                        <form action="/homepage/logout" method="post">
-                            <button type="submit"class="btn btn-secondary btn-md"><i class="fa fa-power-off"></i> Logout</button>
-                        </form>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-  <!--Header-->
-  <!---->
-  <div class="container">
-      
-  </div>
-  <!-- Footer -->
-<footer class="page-footer font-small bg-dark fixed-bottom" style="height:3.5rem;width:100%">
 
-       
-        <div class="container-fluid text-center" style="padding-top: 10px;">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+      <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/homepage">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="/portfoliopage" role="button" aria-haspopup="true" aria-expanded="false">PortFolio</a>
+                    <div class="dropdown-menu bg-dark">
+                      <a class="dropdown-item" href="/portfoliopage">Show Portfolio</a>
+                      <a class="dropdown-item" href="/portfoliopage">Add PortFolio</a>
+                    </div>
+                  </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/livemarket">Live Market</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/watchlist">Watch List</a>
+        </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/whystocks">Forum</a>
+            </li>
+            <li class="nav-item">
+                    <a class="nav-link" href="/aboutus">About Us</a>
+            </li>
+            
+        </ul>
+    </div>
+      <div class="mx-auto order-0">
+        <a class="navbar-brand mx-auto" href="#"
+          ><h3 id="sitename" style="font-family: 'Cinzel Decorative', cursive">
+            <span><i class="fa fa-line-chart"></i></span> StockPile
+          </h3></a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target=".dual-collapse2"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <form action="/homepage/logout" method="post">
+              <button type="submit" class="btn btn-secondary btn-md">
+                <i class="fa fa-power-off"></i> Logout
+              </button>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!--Header-->
+    <br>
+    <!---->
+    <div class="container-fluid">
+      <div class="row mb-2">
+        
+                <div class="tcontainer">
+                        <div class="ticker-wrap">
+                          <div class="ticker-move bg-dark text-white">
+                          </div>
+                          
+                        </div>
+                      </div>
+        
+      </div>
       
-         
-      
-                
-                <a class="fb-ic">
-                        <i class="fa fa-facebook fa-lg text-white mr-md-5 mr-3"></i>
-                </a>
-                
-                <a class="tw-ic">
-                        <i class="fa fa-twitter fa-lg text-white mr-md-5 mr-3"></i>
-                </a>
-      
-               
-                <a class="li-ic">
-                        <i class="fa fa-linkedin fa-lg text-white mr-md-5 mr-3"></i>
-                </a>
-              
-              
-      
+      <div class="row mb-2">
+        <div class="news col-7 mx-auto">
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner bg-dark">
+                          
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                      </div>
         </div>
-        <!-- Footer Elements -->
-      
-        <div class="row"></div>
-      
-      </footer>
-      <!-- Footer -->
+        <div class="livefeedvideo col mx-auto">
+                <iframe width="550" height="300" src="https://www.youtube.com/embed/72fxnKNZTpM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+         </div>
+      </div>
+      <div class="row">
+            <header class="w-100 mx-auto bg-dark text-center"><h2><a href="" class="text-white">My Watchlist</a></h2></header>
+        <div class="watchlist mx-auto">
+                <div class="watchlistcards">
+                    </div>
+        </div>
+      </div>
+      <div class="row mb-2">
+          <header class="w-100 mx-auto bg-dark text-center"><h2><a href="" class="text-white">My Portfolios</a></h2></header>
+        <div class="portfoliocards mx-auto">
+            
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <!-- Footer -->
+    <footer
+      class="page-footer font-small bg-dark"
+      style="height:3.5rem;width:100%"
+    >
+      <div class="container-fluid text-center" style="padding-top: 10px;">
+        <a class="fb-ic">
+          <i class="fa fa-facebook fa-lg text-white mr-md-5 mr-3"></i>
+        </a>
 
+        <a class="tw-ic">
+          <i class="fa fa-twitter fa-lg text-white mr-md-5 mr-3"></i>
+        </a>
 
-</body>
+        <a class="li-ic">
+          <i class="fa fa-linkedin fa-lg text-white mr-md-5 mr-3"></i>
+        </a>
+      </div>
+      <!-- Footer Elements -->
+
+      <div class="row"></div>
+    </footer>
+    <!-- Footer -->
+
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="scripts/home.js"></script>
+  </body>
 </html>

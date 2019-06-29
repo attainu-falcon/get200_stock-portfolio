@@ -16,7 +16,7 @@ router.get('/',function(req,res){
         res.sendfile('public/signin.html');
     }
 });
-router.post('/logout',function(req,res)
+router.post('/logout',function(req,res){
    req.session.destroy();
     res.redirect('/');
 });
