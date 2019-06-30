@@ -1,5 +1,4 @@
 var express =require('express');
-var session = require('express-session');
 var router = express.Router();
 
 var path = require('path');
@@ -9,7 +8,7 @@ var ObjectId = require('mongodb').ObjectID;
 router.use(express.static('public'));
 
 router.get('/',function(req,res){
-     if(req.app.locals.login == true){
+     if(req.session.login === true){
          res.sendfile('livemarket.html');
      }
      else{
@@ -18,8 +17,8 @@ router.get('/',function(req,res){
 });
 
 router.post('/logout',function(req,res){
-    req.app.locals.login = false;
-    req.session = null;
+  
+    req.session.destroy();
     res.redirect('/');
 });
 
