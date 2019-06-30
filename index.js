@@ -10,6 +10,7 @@ var portfolio = require('./portfoliopage');
 var livemarket = require('./livemarket');
 var watchlist = require('./watchlist');
 var whystocks = require('./whystocks');
+var aboutus = require('./aboutus');
 var db;
 var data;
 mongoClient.connect('mongodb://localhost:27017/stockpileusers', function (err, client) {
@@ -74,22 +75,6 @@ app.get('/userportfolio', function (req, res) {
         res.json(result[0].portfolios);
     });
 });
-
-app.get('/userwatchlist', function (req, res) {
-    var DB = app.locals.db;
-    DB.collection('users').find({ "email": req.app.locals.user }).toArray(function (err, result) {
-        if (err) throw err;
-        var logedinuser = result[0];
-        console.log(logedinuser);
-        res.json(result[0].watchlist);
-    });
-});
-
-app.use('/homepage', homepage);
-app.use('/portfoliopage', portfolio);
-app.use('/livemarket', livemarket);
-app.use('/watchlist',watchlist);
-app.use('/whystocks', whystocks);
 
 
 
