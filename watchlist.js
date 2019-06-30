@@ -16,6 +16,20 @@ router.get('/',function(req,res){
      }
 });
 
+router.delete('/',function(req,res){
+    var email = req.app.locals.username;
+    req.app.locals.db.collection('users').update(
+        {"email": email},
+        { $pull: { 'watchlist': { symbol: 'CZR' } } },
+        function(err,result)
+        {
+            if(err) throw err;
+            console.log(result);
+            res.json(result);   
+        }
+      );
+})
+
 router.post('/logout',function(req,res){
     
     req.session.destroy();

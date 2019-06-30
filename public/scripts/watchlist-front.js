@@ -52,5 +52,20 @@ function symbolList(){
        });
   }
   symbolList();
+
+  function addFunction(){
+    alert("button clicked");
+  }
+  function deleteFunction(event){
+    console.log(event.target);
+    $.ajax({
+       'url':'/watchlist',
+      'type':'DELETE',
+      'datatype':'JSON',
+      success:function(result){
+        location.reload();
+      }
+    })
+  }
   
   
