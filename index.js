@@ -9,6 +9,7 @@ var homepage = require('./homepage');
 var portfolio = require('./portfoliopage');
 var livemarket = require('./livemarket');
 var whystocks = require('./whystocks');
+var aboutus = require('./aboutus');
 var db;
 var data;
 mongoClient.connect('mongodb://localhost:27017/stockpileusers',function(err , client){    
@@ -59,6 +60,7 @@ app.use('/homepage',homepage);
 app.use('/portfoliopage',portfolio);
 app.use('/livemarket',livemarket);
 app.use('/whystocks',whystocks);
+app.use('/aboutus',aboutus);
 
 
 app.listen(3000);
