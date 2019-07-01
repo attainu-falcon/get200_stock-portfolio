@@ -41,7 +41,7 @@ function symbolList(){
                 content += '<td class="col-xs-2"  style="color:green">'+data.profile["changesPercentage"]+'</td>';
               }
               content += '<td class="col-xs-2">'+data.profile["exchange"]+'</td>';
-              content += '<td class="col-xs-2" style="font-size:24px">'+'<button class="btn btn-dark">'+'<i class="fa fa-trash">'+'</i>'+'</button>'+'</td>';
+              content += '<td class="col-xs-2" style="font-size:24px">'+'<button class="btn btn-dark" onclick="deleteFunction(event)">'+'<i class="fa fa-trash">'+'</i>'+'</button>'+'</td>';
   
               content += '</tr>'
               $('tbody').append(content);
@@ -56,10 +56,12 @@ function symbolList(){
   function addFunction(){
     alert("button clicked");
   }
+  
   function deleteFunction(event){
-    console.log(event.target);
+    console.log(event.target)
+    var symbol = $($(event.target).parentsUntil('tbody')[1]).children()[1].innerText ;
     $.ajax({
-       'url':'/watchlist',
+       'url':'/watchlist/'+symbol,
       'type':'DELETE',
       'datatype':'JSON',
       success:function(result){

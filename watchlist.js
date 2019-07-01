@@ -16,15 +16,18 @@ router.get('/',function(req,res){
      }
 });
 
-router.delete('/',function(req,res){
-    var email = req.app.locals.username;
-    req.app.locals.db.collection('users').update(
+router.delete('/:symbol',function(req,res){
+    var email = req.app.locals.user;
+    var symbol = req.params.symbol;
+    console.log("delete route hit"+ symbol);
+    console.log(email);
+    req.app.locals.db.collection('users').updateOne(
         {"email": email},
-        { $pull: { 'watchlist': { symbol: 'CZR' } } },
+        { $pull: { 'watchlist': { 'symbol': symbol } } },
         function(err,result)
         {
             if(err) throw err;
-            console.log(result);
+           // console.log(result);
             res.json(result);   
         }
       );
