@@ -22,6 +22,7 @@ function symbolList(){
           $.ajax({
              'url':'https://financialmodelingprep.com/api/v3/company/profile/'+symbols[i],
              'type':'GET',
+             'crossDomain':true,
              'datatype':'JSON',
              success:function(data){
                console.log(data);
@@ -53,10 +54,6 @@ function symbolList(){
   }
   symbolList();
 
-  function addFunction(){
-    alert("button clicked");
-  }
-  
   function deleteFunction(event){
     console.log(event.target)
     var symbol = $($(event.target).parentsUntil('tbody')[1]).children()[1].innerText ;
