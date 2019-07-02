@@ -12,7 +12,15 @@ var watchlist = require('./watchlist');
 var whystocks = require('./whystocks');
 var db;
 var data;
-mongoClient.connect('mongodb://localhost:27017/stockpileusers', function (err, client) {
+var url;
+if(process.env.MY_DB)
+   url=process.env.MY_DB;
+else
+   url='mongodb://localhost:27017/stockpileusers'
+
+   console.log(url);
+   
+mongoClient.connect(url, function (err, client) {
     if (err) throw err;
 
     app.locals.db = client.db('stockpileusers');
@@ -94,4 +102,4 @@ app.use('/whystocks', whystocks);
 
 
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
