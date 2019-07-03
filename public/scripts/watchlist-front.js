@@ -33,16 +33,17 @@ function symbolList(){
               content += '<td class="col-xs-2">'+data.profile["range"]+'</td>';
             
               if(data.profile["changes"]<0){
-                  content += '<td class="col-xs-2" style="color:red">'+data.profile["changes"]+'</td>';
-              content += '<td class="col-xs-2" style="color:red">'+data.profile["changesPercentage"]+'</td>';
+                  content += '<td class="col-xs-2 font-weight-bold" style="color:red">'+data.profile["changes"]+'</td>';
+              content += '<td class="col-xs-2 font-weight-bold" style="color:red">'+data.profile["changesPercentage"]+'</td>';
               }
               else
               {
-                 content += '<td class="col-xs-2" style="color:green">'+data.profile["changes"]+'</td>';
-                content += '<td class="col-xs-2"  style="color:green">'+data.profile["changesPercentage"]+'</td>';
+                 content += '<td class="col-xs-2 font-weight-bold" style="color:green">'+data.profile["changes"]+'</td>';
+                content += '<td class="col-xs-2 font-weight-bold"  style="color:green">'+data.profile["changesPercentage"]+'</td>';
               }
               content += '<td class="col-xs-2">'+data.profile["exchange"]+'</td>';
-              content += '<td class="col-xs-2" style="font-size:24px">'+'<button class="btn btn-dark" onclick="deleteFunction(event)">'+'<i class="fa fa-trash">'+'</i>'+'</button>'+'</td>';
+              content += '<td class="col-xs-2" style="font-size:24px">'+'<button class="btn btn-dark" onclick="deleteFunction(event)">'
+              +'<i class="fa fa-trash">'+'</i>'+'</button>'+'</td>';
   
               content += '</tr>'
               $('tbody').append(content);
@@ -62,7 +63,8 @@ function symbolList(){
       'type':'DELETE',
       'datatype':'JSON',
       success:function(result){
-        location.reload();
+        $(event.target).closest('tr').remove();
+      
       }
     })
   }
