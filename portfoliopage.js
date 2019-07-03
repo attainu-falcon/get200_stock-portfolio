@@ -16,6 +16,28 @@ router.get('/',function(req,res){
     }
 });
 
+router.delete('/:porfolioname,:symbol',function(req,res){
+    var email = req.app.locals.user;
+    var porfolioname =req.params.porfolioname
+    var symbol = req.params.symbol;
+    console.log("delete route hit"+ symbol+porfolioname);
+    console.log(email);
+    req.app.locals.db.collection('users').updateOne(
+        {
+            "email":email,
+            'portfolios.portfolio_name':porfolioname
+
+        },
+        {$pull:{'portfolios.$.companies':{symbol:symbol}}},
+        
+        function(err,result)
+        {
+            if(err) throw err;
+           // console.log(result);
+            res.json(result);   
+        }
+      );
+})
 
 router.get('/addportfolio',function(req,res){
 
