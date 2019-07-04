@@ -48,6 +48,7 @@ function symbolist(){
       
       'url':'https://financialmodelingprep.com/api/v3/company/stock/list',
       'type':'GET',
+      'crossDomain':true,
       'datatype':'JSON',
       success:function(result){
         var list = result.symbolsList;
@@ -62,6 +63,7 @@ function symbolist(){
           $.ajax({
              'url':'https://financialmodelingprep.com/api/v3/company/profile/'+symbols[i],
              'type':'GET',
+             'crossDomain':true,
              'datatype':'JSON',
              success:function(data){
              // console.log(data);

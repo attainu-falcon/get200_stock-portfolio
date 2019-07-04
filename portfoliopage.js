@@ -16,7 +16,7 @@ router.get('/',function(req,res){
     }
 });
 
-router.delete('/:porfolioname,:symbol',function(req,res){
+router.delete('/:porfolioname/:symbol',function(req,res){
     var email = req.app.locals.user;
     var porfolioname =req.params.porfolioname
     var symbol = req.params.symbol;
@@ -38,6 +38,30 @@ router.delete('/:porfolioname,:symbol',function(req,res){
         }
       );
 })
+
+router.post('/addstocks',function(req,res){
+                console.log(req.body);
+                var email = req.app.locals.user;
+                req.app.locals.db.collection('users').updateOne(
+                    {
+                        "email":email,
+                        'portfolios.portfolio_name':req.body.pfname
+            
+                    },
+                    {$push:{'portfolios.$.companies':{symbol:req.body.symbol,name:req.body.companyname,
+                        buy_price:req.body.bprice,
+                        quantity:req.body.quantity,
+                       invest_date:req.body.investdate}}},
+                    
+                    function(err,result)
+                    {
+                        if(err) throw err;
+                       // console.log(result);
+                        res.redirect('/portfoliopage');   
+                    }
+                  );
+                
+});
 
 router.get('/addportfolio',function(req,res){
 

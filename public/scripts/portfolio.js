@@ -24,7 +24,7 @@ function getstocksymbolofusers(){
         portfoliotable += '<table class="table table-hover table-dark" style="font-size:12px">';
         portfoliotable += '<thead class="bg-info text-white">';
         portfoliotable += '<tr>'
-        portfoliotable +=  '<th colspan="4"><input type="submit" class="btn btn-lg btn-dark" value="Add Stocks" data-toggle="modal" data-target="#addstocksbtn" name="addstocks"></th>'
+        portfoliotable +=  '<th colspan="4"><button class="btn btn-lg btn-dark" value="Add Stocks" data-toggle="modal" data-target="#addstocksbtn" name="addstocks" id="addstocksbtn'+i+'" onclick="addFunction(event)">Add Stocks</button></th>';
         portfoliotable +=  '<th colspan="7" id ="pname"><h3 class="bg-info text-white mx-auto" id="list-item-'+i+'">'+totalportfolio[i].portfolio_name+'</h3></th>';
         portfoliotable += '</tr>';
         portfoliotable += '<tr>';
@@ -71,7 +71,7 @@ function getstocksymbolofusers(){
                 portfoliotable +=  '<td class="col-xs-2 text-success font-weight-bold">'+gl+'</td>';
                 portfoliotable +=  '<td class="col-xs-2 text-success font-weight-bold">'+glpercent+'</td>';
               }
-            portfoliotable += '<td class="col-xs-2" style="font-size:24px">'+'<button class="btn btn-dark" onclick="deleteFunction(event)">'+'<i class="fa fa-trash">'+'</i>'+'</button>'+'</td>'
+            portfoliotable += '<td class="col-xs-2" style="font-size:24px">'+'<button class="btn btn-dark" onclick="deleteFunction(event)" id="buttondelete'+i+'_'+j+'">'+'<i class="fa fa-trash">'+'</i>'+'</button>'+'</td>'
             portfolioName += '<tr>';
             
         }
@@ -92,6 +92,7 @@ function getprice(symbol){
        $.ajax({
          'url':'https://financialmodelingprep.com/api/v3/stock/real-time-price/'+symbol,
          'async': false,
+         'crossDomain':true,
          'type':'get',
           'datatype':'json',
           success:function(data){
@@ -119,14 +120,26 @@ document.onreadystatechange = function () {
 
 function deleteFunction(event){
   console.log(event.target)
-  var symbol = $($(event.target).parentsUntil('tbody')[1]).children().children('#sym')[1].innerText ;
-  var portfolioname = $($(event.target).parentsUntil('table')[1]).children().children().children('#pname').children('h3')[1].innerText;
+  var symbol = $($(event.target).parentsUntil('tbody')[1]).children()[0].innerText ;
+  console.log("symbol is"+symbol);
+  var portfolioname = $(event.target).closest('table').find('#pname h3').text();
+  console.log("portfolio name is"+portfolioname);
   $.ajax({
-     'url':'/portfoliopage/'+portfolioname+'&'+symbol,
-    'type':'DELETE',
-    'datatype':'JSON',
+     url:'/portfoliopage/'+portfolioname+'/'+symbol,
+    type:'DELETE',
+    datatype:'JSON',
     success:function(result){
-      location.reload();
+      console.log('deleted');
+     // location.reload();
+     $(event.target).closest('tr').remove();
     }
   })
+}
+
+function addFunction(event){
+  console.log(event.target)
+  var portfolioname = $($(event.target).parent().siblings()[0]).children()[0].innerText;
+  console.log(portfolioname);
+  document.getElementById('fname').innerHTML=portfolioname;
+  document.getElementById('portname').value = portfolioname;
 }

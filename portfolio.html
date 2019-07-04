@@ -120,57 +120,71 @@
      <!-- <input type="button" class="btn btn-dark btn-lg" data-toggle="modal" data-target="#addstocksbtn" name="addstocks" value="ADD STOCKS" />-->
            
               <!-- The Modal -->
-  <div class="modal fade" id="addstocksbtn" style="color: black">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-      
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title" style="color: black">Add Stocks</h4>
-          <form>
-          <div class="float-right">
-           <input type="button" class="btn btn-secondary " name="save" value="SAVE"/>
-            <input type="button" class="btn btn-secondary " name="cancel" data-dismiss="modal" value="CANCEL"/>
-           </div> </div>
-       
-         <!-- Modal body -->
-        <div class="modal-body">
-          
-            <div class="form-group">
-              <label for="companyName">Company Name</label>
-              <input type="text" class="form-control" id="companyName" placeholder="Enter Company name here">
-             </div>
-           
-             <div class="form-group">
-              <label for="investmentDate">Investment Date</label>
-              <input type="date" class="form-control" id="investmentDate" placeholder="Enter investment date here">
-           </div>
+              <div class="modal fade" id="addstocksbtn" style="color: black">
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                    <form action="/portfoliopage/addstocks" method="POST">
+                      <!-- Modal Header -->
+                      <div class="modal-header">
+                    
+                        <div class="float-right">
+                        <h4 class="modal-title" style="color: black" id="fname"></h4>
+                        </div>
+                        </div>
+                        
+                     
+                       <!-- Modal body -->
+                      <div class="modal-body">
+                            
+                          <div class="form-group">
+                              <label for="portfolioname">Portfolio Name</label>
+                              <input type="text" class="form-control" id="portname" name="pfname">
+                             </div>
 
-           <div class="form-group">
-            <label for="investmentPrice">Investment Price</label>
-            <input type="number" class="form-control" id="investmentPrice">
-           </div>
-         
-           <div class="form-group">
-            <label for="quantity">Quantity</label>
-            <input type="number" class="form-control" id="quantity" placeholder="Enter Quantity here">
-           </div>
-         
-           <div class="form-group">
-            <label for="netAmount">Net Amount</label>
-            <input type="number" class="form-control" id="netAmount">
-          
-           </div>
-       
-        </form>
-          </div>
-        </div>
-        </div>
-    </div>
+                           <div class="form-group">
+                            <label for="symbol">Symbol</label>
+                            <input type="text" class="form-control" id="symbol" name="symbol">
+                           </div>
+                        
+                          <div class="form-group">
+                            <label for="companyName">Company Name</label>
+                            <input type="text" class="form-control" id="companyName" placeholder="Enter Company name here" name="companyname">
+                           </div>
+                         
+                           
+              
+                         <div class="form-group">
+                          <label for="investmentPrice">Investment Price</label>
+                          <input type="number" class="form-control" id="investmentPrice" name="bprice" step="any">
+                         </div>
+              
+                         <div class="form-group">
+                            <label for="investmentDate">Investment Date</label>
+                            <input type="date" class="form-control" id="investmentDate" placeholder="Enter investment date here" name="investdate">
+                         </div>
+              
+                         <div class="form-group">
+                          <label for="quantity">Quantity</label>
+                          <input type="number" class="form-control" id="quantity" placeholder="Enter Quantity here" name="quantity">
+                         </div>
+                       
+                         </div>
+              
+                         <div class="modal-footer">
+                          <button type="submit" class="btn btn-secondary ">Save</button>
+                          <input type="button" class="btn btn-secondary " name="cancel" data-dismiss="modal" value="CANCEL"/>
+                         </div> 
+                         
+                     
+                    </form>
+                        
+                      </div>
+                      </div>
+                  </div>
     </div>
     <!-- Footer -->
     <br>
-    <br>
+    
     <footer
       class="page-footer font-small bg-dark"
       style="height:3.5rem;width:100%"

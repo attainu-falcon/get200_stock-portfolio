@@ -69,6 +69,7 @@ function newsmedia(){
       
       'url':'https://financialmodelingprep.com/api/v3/company/stock/list',
       'type':'GET',
+      'crossDomain':true,
       'datatype':'JSON',
       success:function(result){
         var list = result.symbolsList;
@@ -82,6 +83,7 @@ function newsmedia(){
           $.ajax({
              'url':'https://financialmodelingprep.com/api/v3/company/profile/'+symbols[i],
              'type':'GET',
+             'crossDomain': true,
              'datatype':'JSON',
              success:function(data){
               tickerdiv="";
@@ -130,11 +132,12 @@ function getwatchlist(input) {
         $.ajax({
           'url': 'https://financialmodelingprep.com/api/v3/company/profile/' + symbols[i],
           'type': 'GET',
+          'crossDomain':true,
           'datatype': 'JSON',
           success: function (data) {
             console.log(data);
             contentdiv = "";
-            contentdiv += '<div class="col-4">';
+            contentdiv += '<div class="col-4 p-2 mt-auto">';
             contentdiv += '<div class="card card-block text-center"><div class="card-header bg-dark text-white text-center">';
             contentdiv += '<h4 class="card-title" style="font-size:17px">'+data.profile["companyName"]+'</h4></div>';
             
@@ -187,7 +190,7 @@ getwatchlist();
          // console.log(totalportfolio[i].portfolio_name);
             var gainer = '';gainedValue = 0;var totalvalue = 0;
             var loser = ''; lostValue = Infinity;var totalnetworth =0;
-            var portfoliocard = '<div class="col-4">';
+            var portfoliocard = '<div class="col-4 p-2 mt-auto">';
             portfoliocard += '<div class="card card-block text-center"><div class="card-header bg-dark text-white text-center">';
             portfoliocard += '<h3 class="card-title">'+totalportfolio[i].portfolio_name+'</h3></div>';
             for(var j=0;j<totalportfolio[i].companies.length;j++)
@@ -241,6 +244,7 @@ getwatchlist();
          $.ajax({
            'url':'https://financialmodelingprep.com/api/v3/stock/real-time-price/'+symbol,
            'async': false,
+           'corssDomain':true,
            'type':'get',
             'datatype':'json',
             success:function(data){
