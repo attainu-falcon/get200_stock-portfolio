@@ -98,7 +98,7 @@ function newsmedia(){
               {
                 tickerdiv += '<div class="ticker-item" style="color:red">'+data.profile["changes"]+'</div>';
               }
-              tickerdiv += '<div class="vl" style="height:30px; border-right:1px solid black">';
+              tickerdiv += '<div class="vl" style="height:30px; border-right:2px solid #3498db">';
               tickerdiv += '</div';
             
             $('.ticker-move').append(tickerdiv);

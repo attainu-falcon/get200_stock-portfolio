@@ -19,7 +19,7 @@ else
    url='mongodb://localhost:27017/stockpileusers'
 
    console.log(url);
-   
+
 mongoClient.connect(url, function (err, client) {
     if (err) throw err;
 
