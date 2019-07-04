@@ -42,7 +42,7 @@ function symbolList(){
                 content += '<td class="col-xs-2 font-weight-bold"  style="color:green">'+data.profile["changesPercentage"]+'</td>';
               }
               content += '<td class="col-xs-2">'+data.profile["exchange"]+'</td>';
-              content += '<td class="col-xs-2" style="font-size:24px">'+'<button class="btn btn-dark" onclick="deleteFunction(event)">'
+              content += '<td class="col-xs-2" style="font-size:24px">'+'<button class="btn btn-dark" onclick="confirm('+"'Do you want to delete?'"+') && deleteFunction(event)">'
               +'<i class="fa fa-trash">'+'</i>'+'</button>'+'</td>';
   
               content += '</tr>'
@@ -64,6 +64,28 @@ function symbolList(){
       'datatype':'JSON',
       success:function(result){
         $(event.target).closest('tr').remove();
+      
+      }
+    })
+  };
+
+  function addFunction(event){
+    console.log(event.target)
+    var symbol=$('#symbol').val();
+    var elements =$('table tbody tr td:nth-child(2)');
+    for(i=0;i<elements.length;i++){
+      if(elements[i].innerText==symbol){
+        alert("Symbol already exists");
+        return;
+      }
+    }
+    $.ajax({
+       'url':'/watchlist/',
+      'type':'POST',
+      'datatype':'JSON',
+      'data':{'symbol':symbol},
+      success:function(result){
+        console.log("added symbol successfully");
       
       }
     })
