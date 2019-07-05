@@ -63,14 +63,25 @@ router.post('/addstocks',function(req,res){
                 
 });
 
-router.get('/addportfolio',function(req,res){
-
-    if(req.session.login == true){
-      res.sendfile('portfolio.html');
+router.post('/addgoal',function(req,res){
+    var email = req.app.locals.user;
+    var goal = req.body.goal;
+    console.log("post route hit"+goal);
+    console.log(email);
+    req.app.locals.db.collection('users').updateOne(
+        {"email":email},
+        {$push : {'portfolios' : {'portfolio_name':goal,
+        "companies":[]
     }
-    else{
-        res.sendfile('public/signin.html');
-    }
+        
+        }},
+        function(err,result)
+            {
+            if(err) throw err;
+            res.redirect('/portfoliopage');
+        }
+        
+    );
 });
 
 router.post('/logout',function(req,res){

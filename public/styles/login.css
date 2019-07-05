@@ -1,7 +1,7 @@
-html {
+html{
     overflow: hidden;
 }
-body {
+body{
     margin: 0;
     font-size: 26px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -13,7 +13,7 @@ body {
     overflow-y:auto;
     
 }
-.parallax-wrapper {
+.parallax-wrapper{
     width: 100vw;
     height:100vh;
     padding-top:20vh;
@@ -27,7 +27,7 @@ body {
     box-sizing: border-box;
     transform-style: preserve-3d;
 }
-.parallax-wrapper::before {
+.parallax-wrapper::before{
     content:"";
     width: 100vw;
     height: 100vh;

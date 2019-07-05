@@ -71,7 +71,7 @@ function getstocksymbolofusers(){
                 portfoliotable +=  '<td class="col-xs-2 text-success font-weight-bold">'+gl+'</td>';
                 portfoliotable +=  '<td class="col-xs-2 text-success font-weight-bold">'+glpercent+'</td>';
               }
-            portfoliotable += '<td class="col-xs-2" style="font-size:24px">'+'<button class="btn btn-dark" onclick="deleteFunction(event)" id="buttondelete'+i+'_'+j+'">'+'<i class="fa fa-trash">'+'</i>'+'</button>'+'</td>'
+            portfoliotable += '<td class="col-xs-2" style="font-size:24px">'+'<button class="btn btn-dark" onclick="confirm('+"'Do you want to delete?'"+') && deleteFunction(event)" id="buttondelete'+i+'_'+j+'">'+'<i class="fa fa-trash">'+'</i>'+'</button>'+'</td>'
             portfolioName += '<tr>';
             
         }

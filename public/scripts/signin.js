@@ -6,6 +6,7 @@ $('#sign,#signup').on('click',function(){
     $('.loginbox').css('display','block');
     $('.signupbox').css('display','none');
 })
+
 /*function validate(){
     var name="suraj@k202";
     var passid="qwerty202";

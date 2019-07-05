@@ -137,8 +137,8 @@ function getwatchlist(input) {
           success: function (data) {
             console.log(data);
             contentdiv = "";
-            contentdiv += '<div class="col-4 p-2 mt-auto">';
-            contentdiv += '<div class="card card-block text-center"><div class="card-header bg-dark text-white text-center">';
+            contentdiv += '<div class="col-4 p-2 mt-auto mx-auto">';
+            contentdiv += '<div class="card card-block text-center" style="min-width:300px;min-height:300px"><div class="card-header bg-dark text-white text-center">';
             contentdiv += '<h4 class="card-title" style="font-size:17px">'+data.profile["companyName"]+'</h4></div>';
             
             contentdiv += '<div class="card-body bg-info">';
@@ -190,8 +190,8 @@ getwatchlist();
          // console.log(totalportfolio[i].portfolio_name);
             var gainer = '';gainedValue = 0;var totalvalue = 0;
             var loser = ''; lostValue = Infinity;var totalnetworth =0;
-            var portfoliocard = '<div class="col-4 p-2 mt-auto">';
-            portfoliocard += '<div class="card card-block text-center"><div class="card-header bg-dark text-white text-center">';
+            var portfoliocard = '<div class="col-4 p-2 mt-auto mx-auto">';
+            portfoliocard += '<div class="card card-block text-center" style="min-width:300px;min-height:300px"><div class="card-header bg-dark text-white text-center">';
             portfoliocard += '<h3 class="card-title">'+totalportfolio[i].portfolio_name+'</h3></div>';
             for(var j=0;j<totalportfolio[i].companies.length;j++)
           {

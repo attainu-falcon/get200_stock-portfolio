@@ -34,7 +34,7 @@ function symbolList(){
             
               if(data.profile["changes"]<0){
                   content += '<td class="col-xs-2 font-weight-bold" style="color:red">'+data.profile["changes"]+'</td>';
-              content += '<td class="col-xs-2 font-weight-bold" style="color:red">'+data.profile["changesPercentage"]+'</td>';
+                  content += '<td class="col-xs-2 font-weight-bold" style="color:red">'+data.profile["changesPercentage"]+'</td>';
               }
               else
               {

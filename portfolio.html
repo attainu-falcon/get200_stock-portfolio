@@ -55,7 +55,7 @@
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="/portfoliopage" role="button" aria-haspopup="true" aria-expanded="false">PortFolio</a>
                             <div class="dropdown-menu bg-dark">
                               <a class="dropdown-item" href="/portfoliopage">Show Portfolio</a>
-                              <a class="dropdown-item" href="/portfoliopage">Add PortFolio</a>
+                              <a class="dropdown-item" href="/portfoliopage" data-toggle="modal" data-target="#addportfolio">Add PortFolio</a>
                             </div>
                           </li>
                     <li class="nav-item">
@@ -64,9 +64,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/watchlist">Watch List</a>
                 </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/whystocks">Forum</a>
-                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/whystocks">Market Performance</a>
+                </li>
                     <li class="nav-item">
                             <a class="nav-link" href="/aboutus">About Us</a>
                     </li>
@@ -106,6 +106,32 @@
     </div>
      
     <div id="contents">
+        <div class="modal fade" id="addportfolio" style="color: black">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+              
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title" style="color: black">Add portfolio goal</h4>
+                  <div class="float-right">
+                      <form action="/portfoliopage/addgoal" method="post">
+        
+                        <input type="submit" class="btn btn-secondary" onclick="addgoalFunction(event)" name="add" value="ADD"/>
+                        <input type="button" class="btn btn-secondary" name="cancel" data-dismiss="modal" value="CANCEL"/>
+                    </div> </div>
+               
+                 <!-- Modal body -->
+                  <div class="modal-body">
+                    <div class="form-group">
+                      <label for="symbol">Enter your goal</label>
+                      <input type="text" class="form-control goal" id="goal" name="goal" placeholder="GOAL">
+                    </div>
+                   </form>
+                  
+                </div>
+                </div>
+                </div>
+              </div>
           
     <br>
     <div class="container-fluid" style="width:100%;overflow:auto">
