@@ -6,7 +6,10 @@
    background:url("https://www.kodeclust.com/assets/images/preloader.gif") no-repeat center center;
    
 }
+thead tr th{
+    position: sticky; top:0px;
+  }
 .dropdown-item:hover{
     background: darkslategrey;
     color: white;
-}
+  }
