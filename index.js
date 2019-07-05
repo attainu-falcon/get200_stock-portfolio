@@ -87,7 +87,14 @@ app.post('/signup', function(req, res){
                  "watchlist": []
                }
             }
-         )
+         );
+         app.locals.db.collection('users').find({}).toArray(function (err, result) {
+            if (err) {
+                throw err;
+            }
+            data = result;
+          //  console.log(data);
+        });   
         res.redirect('/');
     });
 });
