@@ -6,6 +6,9 @@ $('#sign,#signup').on('click',function(){
     $('.loginbox').css('display','block');
     $('.signupbox').css('display','none');
 })
+window.history.forward();
+        function noBack() {
+            window.history.forward();}
 
 /*function validate(){
     var name="suraj@k202";

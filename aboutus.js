@@ -9,7 +9,7 @@ router.use(express.static('public'));
 
 router.get('/',function(req,res){
 
-    if(req.session.login == true){
+    if(req.session.login === true){
 
         res.sendfile('aboutus.html');
     }
@@ -20,6 +20,6 @@ router.get('/',function(req,res){
 });
 router.post('/logout',function(req,res){
     req.session.destroy();
-    res.sendfile('public/signin.html');
+    res.redirect('/');
 });
 module.exports = router;
