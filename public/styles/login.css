@@ -176,3 +176,15 @@ body{
    color:#e15f41;
    font-size:15px;
 }
+#intro1:first-child:first-letter {
+    color: rgb(14, 248, 84); 
+    font-family: Georgia;
+    font-size: 100px;
+    initial-letter: 2;
+  }
+
+  ul li{
+      list-style: none;
+      line-height: 50px;
+      font-size: 30px;
+  }
