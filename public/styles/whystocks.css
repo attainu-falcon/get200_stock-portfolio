@@ -1,0 +1,27 @@
+#list-item-a,
+#list-item-b,
+#list-item-e,
+#list-item-f{
+  display: flex;    
+    overflow-x: auto;
+}
+#load{
+    width:100%;
+    height:100%;
+    position:fixed;
+    z-index:9999;
+   background:url("https://www.kodeclust.com/assets/images/preloader.gif") no-repeat center;
+   
+    
+}
+#load{
+  width:100%;
+  height:100%;
+  position:fixed;
+  z-index:9999;
+  background:url("https://www.kodeclust.com/assets/images/preloader.gif") no-repeat center center;
+}
+.dropdown-item:hover{
+background: darkslategrey;
+color: white;
+}

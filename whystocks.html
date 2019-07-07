@@ -1,32 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
 
-    <title>Forum</title>
+    <title>Market Performance</title>
     <link rel="icon" href="https://i.ibb.co/PzMJhpt/faviconlogo.png" type="image/icon type">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative" rel="stylesheet">
+    <link href="styles/whystocks.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
-<body>
-    <!--Header-->
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
             <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
-                <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav mr-auto" style="font-size:14px">
                     <li class="nav-item">
                         <a class="nav-link" href="/homepage">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="/portfoliopage" role="button" aria-haspopup="true" aria-expanded="false">PortFolio</a>
-                            <div class="dropdown-menu bg-dark">
-                              <a class="dropdown-item" href="/portfoliopage">Show Portfolio</a>
-                              <a class="dropdown-item" href="/portfoliopage">Add PortFolio</a>
+                            <div class="dropdown-menu bg-dark" style="font-size:14px">
+                              <a class="dropdown-item text-white" href="/portfoliopage">Show Portfolio</a>
+                              <a class="dropdown-item text-white" href="/portfoliopage">Add PortFolio</a>
                             </div>
                           </li>
                     <li class="nav-item">
@@ -36,7 +37,7 @@
                         <a class="nav-link" href="/watchlist">Watch List</a>
                 </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="/whystocks">Forum</a>
+                        <a class="nav-link active" href="/whystocks">Market Performance</a>
                     </li>
                     <li class="nav-item">
                             <a class="nav-link" href="/aboutus">About Us</a>
@@ -54,15 +55,89 @@
                     
                     <li class="nav-item">
                         <form action="/whystocks/logout" method="post">
-                            <button type="submit"class="btn btn-secondary btn-md"><i class="fa fa-power-off"></i> Logout</button>
+                            <button type="submit"class="btn btn-success btn-md" style="font-size:14px"><i class="fa fa-power-off"></i> Logout</button>
                         </form>
                     </li>
                 </ul>
             </div>
         </nav>
-        <!--Header-->
-        <!-- Footer -->
-<footer class="page-footer font-small bg-dark fixed-bottom" style="height:3.5rem;width:100%">
+    <div id="load"></div>
+    <div id="contents">
+      
+<br>
+    <div class="row">
+    <div class ="col-2 align-self-start">
+    <div id="list-example" class="list-group p-2 text-center" style="font-size:15px">
+  <a class="list-group-item list-group-item-action bg-dark text-white" href="#list-item-1">Major Indexes</a>
+  <a class="list-group-item list-group-item-action bg-dark text-white" href="#list-item-2">Most Active</a>
+  <a class="list-group-item list-group-item-action bg-dark text-white" href="#list-item-3">Most Losers</a>
+  <a class="list-group-item list-group-item-action bg-dark text-white" href="#list-item-4">Most Gainers</a>
+  <a class="list-group-item list-group-item-action bg-dark text-white" href="#list-item-5">Sector Performance</a>
+  <a class="list-group-item list-group-item-action bg-dark text-white" href="#list-item-6">Cryptocurrencies</a>
+
+</div>
+    </div>
+<div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example col-10 mt-25 p-2" style="height:700px;overflow-y:scroll">
+  <h2 id="list-item-1" class="text-center">Major Indexes performance</h2>
+  <div id="list-item-a" style="height:300px;overflow-x:scroll"></div>
+  
+  <h2 id="list-item-2" class="text-center">Most Active Stocks</h2>
+  <div id="list-item-b" style="height:320px;overflow-x:scroll"></div>
+  <h2 id="list-item-3" class="text-center">Most Losers</h2>
+  <div id="list-item-c" style="height:400px;overflow-x:scroll"><div class="col-lg-8 mx-auto">
+              <div class="card">
+                
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-hover table-dark table-bordered table-fixed tablesorter" id="r1">
+                      <thead class="bg-info text-white">
+                        <tr>
+                          <th>Symbol</th>
+                          <th>Company name</th>
+                          <th>Price</th>
+                          <th>Change</th>
+                          <th class="text-center">Chng%</th>
+                        </tr>
+                      </thead>
+                      <tbody id="losers"></tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div></div>
+  <h2 id="list-item-4" class="text-center">Most Gainers</h2>
+  <div id="list-item-d" style="height:400px;overflow-x:scroll">
+    <div class="col-lg-8 mx-auto">
+              <div class="card">
+                
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-hover table-dark table-bordered table-fixed tablesorter" id="r1">
+                      <thead class="bg-info text-white">
+                        <tr>
+                          <th>Symbol</th>
+                          <th>Company name</th>
+                          <th>Price</th>
+                          <th>Change</th>
+                          <th class="text-center">Chng%</th>
+                        </tr>
+                      </thead>
+                      <tbody id="gainers"></tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+  </div>
+  <h2 id="list-item-5" class="text-center">Sector Performance</h2>
+  <div id="list-item-e"style="height:200px;overflow-x:scroll"></div>
+  <h2 id="list-item-6" class="text-center">Cryptocurrencies</h2>
+  <div id="list-item-f" style="height:320px;overflow-x:scroll"></div>
+  
+</div>
+</div>
+</div>
+<footer class="page-footer font-small bg-dark" style="height:3.5rem;width:100%">
 
        
         <div class="container-fluid text-center" style="padding-top: 10px;">
@@ -91,9 +166,10 @@
         <div class="row"></div>
       
       </footer>
-      <!-- Footer -->
-
-
-
-</body>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+    <script src="scripts/whystocks.js"></script>
+  </body>
 </html>

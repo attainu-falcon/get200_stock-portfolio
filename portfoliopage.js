@@ -16,15 +16,72 @@ router.get('/',function(req,res){
     }
 });
 
+router.delete('/:porfolioname/:symbol',function(req,res){
+    var email = req.app.locals.user;
+    var porfolioname =req.params.porfolioname
+    var symbol = req.params.symbol;
+    console.log("delete route hit"+ symbol+porfolioname);
+    console.log(email);
+    req.app.locals.db.collection('users').updateOne(
+        {
+            "email":email,
+            'portfolios.portfolio_name':porfolioname
 
-router.get('/addportfolio',function(req,res){
+        },
+        {$pull:{'portfolios.$.companies':{symbol:symbol}}},
+        
+        function(err,result)
+        {
+            if(err) throw err;
+           // console.log(result);
+            res.json(result);   
+        }
+      );
+})
 
-    if(req.session.login == true){
-      res.sendfile('portfolio.html');
+router.post('/addstocks',function(req,res){
+                console.log(req.body);
+                var email = req.app.locals.user;
+                req.app.locals.db.collection('users').updateOne(
+                    {
+                        "email":email,
+                        'portfolios.portfolio_name':req.body.pfname
+            
+                    },
+                    {$push:{'portfolios.$.companies':{symbol:req.body.symbol,name:req.body.companyname,
+                        buy_price:req.body.bprice,
+                        quantity:req.body.quantity,
+                       invest_date:req.body.investdate}}},
+                    
+                    function(err,result)
+                    {
+                        if(err) throw err;
+                       // console.log(result);
+                        res.redirect('/portfoliopage');   
+                    }
+                  );
+                
+});
+
+router.post('/addgoal',function(req,res){
+    var email = req.app.locals.user;
+    var goal = req.body.goal;
+    console.log("post route hit"+goal);
+    console.log(email);
+    req.app.locals.db.collection('users').updateOne(
+        {"email":email},
+        {$push : {'portfolios' : {'portfolio_name':goal,
+        "companies":[]
     }
-    else{
-        res.sendfile('public/signin.html');
-    }
+        
+        }},
+        function(err,result)
+            {
+            if(err) throw err;
+            res.redirect('/portfoliopage');
+        }
+        
+    );
 });
 
 router.post('/logout',function(req,res){

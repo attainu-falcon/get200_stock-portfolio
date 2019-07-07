@@ -10,13 +10,16 @@ var portfolio = require('./portfoliopage');
 var livemarket = require('./livemarket');
 var watchlist = require('./watchlist');
 var whystocks = require('./whystocks');
+var aboutus = require('./aboutus');
 var db;
 var data;
 var url;
 if(process.env.MY_DB)
-url=process.env.MY_DB;
+   url=process.env.MY_DB;
 else
-url='mongodb://localhost:27017/stockpileusers';
+   url='mongodb://localhost:27017/stockpileusers'
+
+   console.log(url);
 
 mongoClient.connect(url, function (err, client) {
     if (err) throw err;
@@ -71,6 +74,31 @@ app.post('/auth', function (req, res) {
 
 });
 
+app.post('/signup', function(req, res){
+    app.locals.db.collection('users').insertOne(req.body, function(err, result){
+        if(err) {throw err;
+        }
+        //console.log(req.body);
+        app.locals.db.collection('users').update(
+            { email: req.body.email },
+            { $set:
+               {
+                 "portfolios": [],
+                 "watchlist": []
+               }
+            }
+         );
+         app.locals.db.collection('users').find({}).toArray(function (err, result) {
+            if (err) {
+                throw err;
+            }
+            data = result;
+          //  console.log(data);
+        });   
+        res.redirect('/');
+    });
+});
+
 app.get('/userportfolio', function (req, res) {
     var DB = app.locals.db;
     DB.collection('users').find({ "email": req.app.locals.user }).toArray(function (err, result) {
@@ -96,6 +124,7 @@ app.use('/portfoliopage', portfolio);
 app.use('/livemarket', livemarket);
 app.use('/watchlist',watchlist);
 app.use('/whystocks', whystocks);
+app.use('/aboutus',aboutus);
 
 
 
