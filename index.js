@@ -46,6 +46,11 @@ app.use(session({
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
+
+app.get('/symbolsearch',function(req,res){
+    res.sendfile('symbolsearch.html');
+})
+
 app.get('/', function (req, res) {
     if(req.session.login == true){ res.redirect('/homepage');}
     else{
