@@ -57,7 +57,7 @@ function symbolList(){
 
   function deleteFunction(event){
     console.log(event.target)
-    var symbol = $($(event.target).parentsUntil('tbody')[1]).children()[1].innerText ;
+    var symbol = $($(event.target).closest('tr')).children()[1].innerText;
     $.ajax({
        'url':'/watchlist/'+symbol,
       'type':'DELETE',

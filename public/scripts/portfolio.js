@@ -120,7 +120,7 @@ document.onreadystatechange = function () {
 
 function deleteFunction(event){
   console.log(event.target)
-  var symbol = $($(event.target).parentsUntil('tbody')[1]).children()[0].innerText ;
+  var symbol = $($(event.target).closest('tr')).children()[0].innerText ;
   console.log("symbol is"+symbol);
   var portfolioname = $(event.target).closest('table').find('#pname h3').text();
   console.log("portfolio name is"+portfolioname);
