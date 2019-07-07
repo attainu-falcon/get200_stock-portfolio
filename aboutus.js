@@ -11,7 +11,7 @@ router.get('/',function(req,res){
 
     if(req.session.login === true){
 
-        res.sendfile('whystocks.html');
+        res.sendfile('aboutus.html');
     }
     else{
         res.sendfile('public/signin.html');

@@ -14,8 +14,9 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
 </head>
-<body>
+<body onload="noBack();" onpageshow="if(event.persisted) noBack();" onunload="">
     <!--Header-->
     <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
             <div class="mx-auto">
@@ -31,25 +32,25 @@
         
         <div class="parallax-wrapper">
             <div class="content">
-                <p>Monitor your financial instruments and track your holdings with Stockpile portfolios.<br>
-                    Monitor your portfolio holdings and performance.<br>
-                    Access your watchlist via PC, Tablet or Phone.<br>
-                    Track multiple watchlists.<br>
-                    Include stocks, funds, indexes, currencies and commodities.<br>
-                    Add to your portfolio from each instrument page or from within the portfolio itself.
-                    </p>
+                <p class="text-center display-4" id="intro1">Welcome to StockPile</p>
+                    <ul class="text-center">
+                        <li>Think growth.</li>
+                        
+                    </ul>
+                    
             </div>
         </div>
         
 <div class="regular-wrapper">
     <div class="content">
-        <p>Monitor your financial instruments and track your holdings with Stockpile portfolios.<br>
-            Monitor your portfolio holdings and performance.<br>
-            Access your watchlist via PC, Tablet or Phone.<br>
-            Track multiple watchlists.<br>
-            Include stocks, funds, indexes, currencies and commodities.<br>
-            Add to your portfolio from each instrument page or from within the portfolio itself.
-            </p>
+           <p id="intro1" class="text-center display-4">Portfolio Management</p>
+            <ul class="text-center" style="font-size: 25px">
+                <li>See your overall positions and 
+                        Profit/Loss clearly and beautifully.</li>
+                
+            </ul>
+            
+           
           
      </div>
      
@@ -59,13 +60,14 @@
         
     <div class="parallax-wrapper2">
         <div class="content">
-            <p>Monitor your financial instruments and track your holdings with Stockpile portfolios.<br>
-                Monitor your portfolio holdings and performance.<br>
-                Access your watchlist via PC, Tablet or Phone.<br>
-                Track multiple watchlists.<br>
-                Include stocks, funds, indexes, currencies and commodities.<br>
-                Add to your portfolio from each instrument page or from within the portfolio itself.
-                </p>
+                <p id="intro1" class="text-center display-4">Watch Lists</p>
+                <ul class="text-center">
+                    <li>Keep track of your favourite stocks
+                            with multiple watch lists.</li>
+                    <li>Comprehensive Information </li>
+                    <li>Live monitoring and more.Sign up today</li>
+                </ul>
+           
         </div>
     </div>
 
@@ -93,16 +95,16 @@
        </form>
 </div>
   <div class="signupbox">
-    <form  action="" class="box" method="POST">
+    <form  action="/signup" class="box" method="POST">
       <h1>SIGNUP</h1>
       <div class="inputbox">  
-        <input id='email2' autocomplete="off" type="email" required><label>Email ID</label>
+        <input id='email2' autocomplete="off" type="email" name="email" required><label>Email ID</label>
         <br>
         <span id='errortag3'></span>
         </div>
         <br><br>
       <div class="inputbox">         
-      <input id ="pass2" autocomplete="off" type="password" required><label>Password</label>
+      <input id ="pass2" autocomplete="off" type="password" name="password" required><label>Password</label>
       <br>
       <span id='errortag4'></span>
       </div>

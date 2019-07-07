@@ -1,7 +1,7 @@
-html {
+html{
     overflow: hidden;
 }
-body {
+body{
     margin: 0;
     font-size: 26px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -13,7 +13,7 @@ body {
     overflow-y:auto;
     
 }
-.parallax-wrapper {
+.parallax-wrapper{
     width: 100vw;
     height:100vh;
     padding-top:20vh;
@@ -27,7 +27,7 @@ body {
     box-sizing: border-box;
     transform-style: preserve-3d;
 }
-.parallax-wrapper::before {
+.parallax-wrapper::before{
     content:"";
     width: 100vw;
     height: 100vh;
@@ -176,3 +176,15 @@ body {
    color:#e15f41;
    font-size:15px;
 }
+#intro1:first-child:first-letter {
+    color: rgb(14, 248, 84); 
+    font-family: Georgia;
+    font-size: 100px;
+    initial-letter: 2;
+  }
+
+  ul li{
+      list-style: none;
+      line-height: 50px;
+      font-size: 30px;
+  }
