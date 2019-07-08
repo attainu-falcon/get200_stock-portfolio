@@ -17,7 +17,7 @@ router.get('/',function(req,res){
 });
 
 router.delete('/:porfolioname/:symbol',function(req,res){
-    var email = req.app.locals.user;
+    var email = req.session.user;
     var porfolioname =req.params.porfolioname
     var symbol = req.params.symbol;
     console.log("delete route hit"+ symbol+porfolioname);
@@ -41,7 +41,7 @@ router.delete('/:porfolioname/:symbol',function(req,res){
 
 router.post('/addstocks',function(req,res){
                 console.log(req.body);
-                var email = req.app.locals.user;
+                var email = req.session.user;
                 req.app.locals.db.collection('users').updateOne(
                     {
                         "email":email,
@@ -64,7 +64,7 @@ router.post('/addstocks',function(req,res){
 });
 
 router.post('/addgoal',function(req,res){
-    var email = req.app.locals.user;
+    var email = req.session.user;
     var goal = req.body.goal;
     console.log("post route hit"+goal);
     console.log(email);

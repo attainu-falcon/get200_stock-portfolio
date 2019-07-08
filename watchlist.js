@@ -20,7 +20,7 @@ router.get('/',function(req,res){
 });
 
 router.delete('/:symbol',function(req,res){
-    var email = req.app.locals.user;
+    var email = req.session.user;
     var symbol = req.params.symbol;
     console.log("delete route hit"+ symbol);
     // console.log(email);
@@ -38,7 +38,7 @@ router.delete('/:symbol',function(req,res){
 });
 
 router.post('/',function(req,res){
-    var email = req.app.locals.user;
+    var email = req.session.user;
     var symbol = req.body.symbol;
     console.log("post route hit"+symbol);
     // console.log(email);
