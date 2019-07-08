@@ -3,6 +3,23 @@
  * coded by harika thipparthi
  */
 
+$(document).ready(function (){
+  $('#bt').click(function () {
+      
+      var url = "https://financialmodelingprep.com/api/v3/company/stock/list";
+
+      $.getJSON(url, function (data) {
+        //console.log(data.symbolsList);
+        var list = data.symbolsList;
+          $.each(list, function (index, value) {
+              // APPEND OR INSERT DATA TO SELECT ELEMENT.
+              $('#symbol').append('<option value="' + value.symbol + '">' + value.symbol + '</option>');
+             
+          });
+      });
+  });
+});
+
 function symbolList(){
     $.ajax({
       
