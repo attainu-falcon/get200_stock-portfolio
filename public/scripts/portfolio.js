@@ -143,6 +143,33 @@ function addFunction(event){
   console.log(portfolioname);
   document.getElementById('fname').innerHTML=portfolioname;
   document.getElementById('portname').value = portfolioname;
+  var url = "https://financialmodelingprep.com/api/v3/company/stock/list";
+
+            $.getJSON(url, function(data){
+              //console.log(data.symbolsList);
+              var list = data.symbolsList;
+                $.each(list, function (index, value) {
+                    // APPEND OR INSERT DATA TO SELECT ELEMENT.
+                    $('#symbol').append('<option value="' + value.symbol + '">' + value.symbol + '</option>');
+                   
+                });
+            });
+        
+
+        // SHOW SELECTED VALUE.
+         $('#symbol').change(function(){
+            var sym =  document.getElementById("symbol").value;
+            $.ajax({
+              url:'https://financialmodelingprep.com/api/v3/company/profile/'+sym,
+              type:'GET',
+              datatype:'json',
+              success:function(data){
+                var comp=data.profile.companyName;
+                document.getElementById("companyName").value = comp;
+              }
+            })
+
+        });
 }
 
 function deleteportfolio(event){
