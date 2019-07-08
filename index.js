@@ -65,7 +65,7 @@ app.post('/auth', function (req, res) {
         if (req.body.email === data[i].email && req.body.password === data[i].password) {
             console.log(req.body);
             req.session.login = true;
-            app.locals.user = data[i].email;
+            req.session.user = data[i].email;
             app.locals.login = req.session.login;
 
         }
@@ -106,7 +106,7 @@ app.post('/signup', function(req, res){
 
 app.get('/userportfolio', function (req, res) {
     var DB = app.locals.db;
-    DB.collection('users').find({ "email": req.app.locals.user }).toArray(function (err, result) {
+    DB.collection('users').find({ "email": req.session.user }).toArray(function (err, result) {
         if (err) throw err;
         var logedinuser = result[0];
         console.log(logedinuser);
@@ -116,7 +116,7 @@ app.get('/userportfolio', function (req, res) {
 
 app.get('/userwatchlist', function (req, res) {
     var DB = app.locals.db;
-    DB.collection('users').find({ "email": req.app.locals.user }).toArray(function (err, result) {
+    DB.collection('users').find({ "email": req.session.user }).toArray(function (err, result) {
         if (err) throw err;
         var logedinuser = result[0];
         console.log(logedinuser);
