@@ -38,6 +38,22 @@ router.delete('/:porfolioname/:symbol',function(req,res){
         }
       );
 })
+router.delete('/:pfname',function(req,res){
+    console.log(req.params.pfname);
+    var email = req.session.user;
+    var porfolioname =req.params.pfname;
+    console.log('this portfolio delete route hit'+porfolioname);
+    req.app.locals.db.collection('users').updateOne(
+        {"email":email},
+        {$pull:{'portfolios':{'portfolio_name':req.params.pfname} } },
+        function(err,result)
+        {
+            if(err) throw err;
+           // console.log(result);
+            res.json(result);   
+        }
+    );
+})
 
 router.post('/addstocks',function(req,res){
                 console.log(req.body);
