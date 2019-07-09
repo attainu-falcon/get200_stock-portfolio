@@ -182,7 +182,7 @@ function deleteportfolio(event){
    datatype:'JSON',
    success:function(result){
      console.log('deleted');
-     location.reload();
+     $(event.target).closest('table').remove();
     }
  })
 }
