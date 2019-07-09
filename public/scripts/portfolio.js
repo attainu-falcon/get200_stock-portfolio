@@ -13,7 +13,7 @@ function getstocksymbolofusers(){
       var totalportfolio = data;
       var portfoliotable = '<div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example ">';
       for(var i=0;i<totalportfolio.length;i++){
-        console.log(totalportfolio[i].portfolio_name);
+       // console.log(totalportfolio[i].portfolio_name);
 
         var portfolioName = '<div id="list-example" class="list-group bg-dark text-white">';
         portfolioName += '<a class="list-group-item list-group-item-action bg-dark text-white text-center" style="font-size:15px" href="#list-item-'+i+'">'+totalportfolio[i].portfolio_name+'</a></div>';
@@ -25,7 +25,8 @@ function getstocksymbolofusers(){
         portfoliotable += '<thead class="bg-info text-white">';
         portfoliotable += '<tr>'
         portfoliotable +=  '<th colspan="4"><button class="btn btn-lg btn-dark" value="Add Stocks" data-toggle="modal" data-target="#addstocksbtn" name="addstocks" id="addstocksbtn'+i+'" onclick="addFunction(event)">Add Stocks</button></th>';
-        portfoliotable +=  '<th colspan="7" id ="pname"><h3 class="bg-info text-white mx-auto" id="list-item-'+i+'">'+totalportfolio[i].portfolio_name+'</h3></th>';
+        portfoliotable +=  '<th colspan="6" id ="pname"><h3 class="bg-info text-white mx-auto" id="list-item-'+i+'">'+totalportfolio[i].portfolio_name+'</h3></th>';
+        portfoliotable += '<th colspan ="1"><button class="btn btn-sm btn-danger" onclick="confirm('+"'Do you want to delete this portfolio?'"+') && deleteportfolio(event)" id="portfoliodelete'+i+'">Delete</button>';
         portfoliotable += '</tr>';
         portfoliotable += '<tr>';
         portfoliotable += '<th class="col-xs-2">Symbol</th>';
@@ -44,13 +45,13 @@ function getstocksymbolofusers(){
          
         for(var j=0;j<totalportfolio[i].companies.length;j++)
         {
-              console.log(totalportfolio[i].companies[j].symbol);
-              console.log(totalportfolio[i].companies[j].buy_price);
+              //console.log(totalportfolio[i].companies[j].symbol);
+              //console.log(totalportfolio[i].companies[j].buy_price);
               var buyprice = totalportfolio[i].companies[j].buy_price;
               var quant = totalportfolio[i].companies[j].quantity;
               var inetworth =+ buyprice*quant;
               var currentprice = getprice(totalportfolio[i].companies[j].symbol);
-              console.log(currentprice);
+             // console.log(currentprice);
               var fnetworth =+ (currentprice*quant).toFixed(5);
               var gl =+ (fnetworth - inetworth).toFixed(5);
               var glpercent =+ ((gl/inetworth)*100).toFixed(5) ;
@@ -142,4 +143,46 @@ function addFunction(event){
   console.log(portfolioname);
   document.getElementById('fname').innerHTML=portfolioname;
   document.getElementById('portname').value = portfolioname;
+  var url = "https://financialmodelingprep.com/api/v3/company/stock/list";
+
+            $.getJSON(url, function(data){
+              //console.log(data.symbolsList);
+              var list = data.symbolsList;
+                $.each(list, function (index, value) {
+                    // APPEND OR INSERT DATA TO SELECT ELEMENT.
+                    $('#symbol').append('<option value="' + value.symbol + '">' + value.symbol + '</option>');
+                   
+                });
+            });
+        
+
+        // SHOW SELECTED VALUE.
+         $('#symbol').change(function(){
+            var sym =  document.getElementById("symbol").value;
+            $.ajax({
+              url:'https://financialmodelingprep.com/api/v3/company/profile/'+sym,
+              type:'GET',
+              datatype:'json',
+              success:function(data){
+                var comp=data.profile.companyName;
+                document.getElementById("companyName").value = comp;
+              }
+            })
+
+        });
+}
+
+function deleteportfolio(event){
+  console.log(event.target);
+  var pfname = $($(event.target).parent().siblings()[1]).children()[0].innerText;
+  console.log("portfolio name is"+pfname);
+  $.ajax({
+    url:'/portfoliopage/'+pfname,
+   type:'delete',
+   datatype:'JSON',
+   success:function(result){
+     console.log('deleted');
+     location.reload();
+    }
+ })
 }
