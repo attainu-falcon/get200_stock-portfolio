@@ -35,9 +35,10 @@ function symbolList(){
         }
         
         var content;
-        for(i=0;i<list.length;i++){
+        function printwatchlist(j){
+          if(j>symbols.length) return;
           $.ajax({
-             'url':'https://financialmodelingprep.com/api/v3/company/profile/'+symbols[i],
+             'url':'https://financialmodelingprep.com/api/v3/company/profile/'+symbols[j],
              'type':'GET',
              'crossDomain':true,
              'datatype':'JSON',
@@ -66,7 +67,11 @@ function symbolList(){
               $('tbody').append(content);
               }
              });
+             setTimeout(function(){
+               printwatchlist(j+1);
+             },1000);
       }
+      printwatchlist(0);
         }
        });
   }
