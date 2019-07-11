@@ -219,12 +219,18 @@ function symbolist(){
               content += '<td class="col-xs-2">'+data.symbol+'</td>';
               content += '<td class="col-xs-2">'+data.profile["industry"]+'</td>';
               content += '<td class="col-xs-2">'+data.profile["sector"]+'</td>';
-              content += '<td class="col-xs-2">'+data.profile["price"]+'</td>';
+              content += '<td class="col-xs-2 text-primary">'+data.profile["price"]+'</td>';
               content += '<td class="col-xs-2">'+data.profile["volAvg"]+'</td>';
               content += '<td class="col-xs-2">'+data.profile["mktCap"]+'</td>';
               content += '<td class="col-xs-2">'+data.profile["range"]+'</td>';
-              content += '<td class="col-xs-2">'+data.profile["changes"]+'</td>';
-              content += '<td class="col-xs-2">'+data.profile["changesPercentage"]+'</td>';
+              if(data.profile["changes"]<0){
+              content += '<td class="col-xs-2 text-danger">'+data.profile["changes"]+'</td>';
+              content += '<td class="col-xs-2 text-danger">'+data.profile["changesPercentage"]+'</td>';
+              }
+              else{
+                content += '<td class="col-xs-2 text-success">'+data.profile["changes"]+'</td>';
+              content += '<td class="col-xs-2 text-success">'+data.profile["changesPercentage"]+'</td>';
+              }
               content += '<td class="col-xs-2">'+data.profile["exchange"]+'</td>';
               content += '</tr>'
   
