@@ -64,50 +64,241 @@ function newsmedia(){
    * code for stock ticker
    * coded by harika
    */
-  function symbolList(){
-    $.ajax({
-      
-      'url':'https://financialmodelingprep.com/api/v3/company/stock/list',
-      'type':'GET',
-      'crossDomain':true,
-      'datatype':'JSON',
-      success:function(result){
-        var list = result.symbolsList;
-        var symbols = [];
-        for(var i=0;i<list.length;i++){
-            symbols.push(list[i].symbol);
+  function symbolList() {
+    var symbols = ['SPY',
+      'CMCSA',
+      'KMI',
+      'INTC',
+      'MU',
+      'GDX',
+      'GE',
+      'BAC',
+      'EEM',
+      'XLF',
+      'AAPL',
+      'MSFT',
+      'SIRI',
+      'HPQ',
+      'CX',
+      'EFA',
+      'CZR',
+      'QQQ',
+      'F',
+      'AMD',
+      'SNAP',
+      'FB',
+      'WFC',
+      'AIG',
+      'T',
+      'C',
+      'VALE',
+      'MS',
+      'AKS',
+      'JPM',
+      'ORCL',
+      'NKE',
+      'VWO',
+      'PG',
+      'FXI',
+      'IWM',
+      'GSM',
+      'HK',
+      'BBD',
+      'PFE',
+      'JD',
+      'NOK',
+      'TWTR',
+      'AMLP',
+      'AVGO',
+      'AMAT',
+      'WFT',
+      'UVXY',
+      'DWDP',
+      'VXX',
+      'VEA',
+      'ZNGA',
+      'XOM',
+      'QCOM',
+      'TVIX',
+      'VIPS',
+      'GLD',
+      'CSCO',
+      'AXP',
+      'BMY',
+      'V',
+      'USO',
+      'GRPN',
+      'WP',
+      'OIH',
+      'GERN',
+      'KEY',
+      'RF',
+      'KR',
+      'HAL',
+      'BABA',
+      'MRO',
+      'CLNS',
+      'GILD',
+      'IEMG',
+      'GM',
+      'FCX',
+      'CRM',
+      'ATVI',
+      'SQ',
+      'P',
+      'XLK',
+      'TWX',
+      'NUE',
+      'XOP',
+      'SWN',
+      'LOW',
+      'RAD',
+      'VEON',
+      'HYG',
+      'APC',
+      'JNK',
+      'EWJ',
+      'XLU',
+      'ESV',
+      'SLB',
+      'FLEX',
+      'FOXA',
+      'ABBV',
+      'GIS',
+      'VZ',
+      'XRX',
+      'CVLT',
+      'IEFA',
+      'X',
+      'MAT',
+      'CTL',
+      'MIK',
+      'DVN',
+      'BKLN',
+      'IBN',
+      'MPC',
+      'EZU',
+      'PM',
+      'MSCI',
+      'RDN',
+      'KO',
+      'AABA',
+      'SRC',
+      'NFX',
+      'COP',
+      'CHK',
+      'DIS',
+      'LEN',
+      'CVX',
+      'PYPL',
+      'GDXJ',
+      'CTRP',
+      'AUY',
+      'DBEF',
+      'WMT',
+      'CLF',
+      'MRK',
+      'MDLZ',
+      'RSPP',
+      'GG',
+      'MGM',
+      'GFI',
+      'KGC',
+      'SCHW',
+      'NBR',
+      'SRCI',
+      'JAG',
+      'NVDA',
+      'JNJ',
+      'WDC',
+      'BSX',
+      'STI',
+      'ON',
+      'ITUB',
+      'BK',
+      'HMY',
+      'APA',
+      'HOME',
+      'NGD',
+      'KOS',
+      'DAL',
+      'INFY',
+      'CCL',
+      'BHGE',
+      'MFGP',
+      'PBR',
+      'DISCA',
+      'LPI',
+      'ABT',
+      'FITB',
+      'PTEN',
+      'USB',
+      'BA',
+      'GGB',
+      'JBLU',
+      'QEP',
+      'EBAY',
+      'HBAN',
+      'DB',
+      'MRVL',
+      'ABX',
+      'WBA',
+      'CDNA',
+      'ETP',
+      'RSX',
+      'KNX',
+      'KBH',
+      'DISCK',
+      'PGR',
+      'XLE',
+      'MO',
+      'MDT',
+      'RIG',
+      'BCS',
+      'CDEV',
+      'DNR',
+      'EOG',
+      'XLP',
+      'HPE',
+      'TXN',
+      'OAS',
+      'OKE',
+      'CVS',
+      'SVXY'];
+    var tickerdiv;
+    var line;
+  
+    function prntticker(j) {
+      if (j > 200) return;
+      $.ajax({
+        'url': 'https://financialmodelingprep.com/api/v3/company/profile/' + symbols[j],
+        'type': 'GET',
+        'datatype': 'JSON',
+        success: function (data) {
+          tickerdiv = "";
+          tickerdiv += '<div class="ticker-item">' + data.symbol + '</div>';
+          tickerdiv += '<div class="ticker-item">' + data.profile["price"] + '</div>';
+  
+          if (data.profile["changes"] > 0) {
+            tickerdiv += '<div class="ticker-item" style="color:green">' + data.profile["changes"] + '</div>';
+          }
+          else {
+            tickerdiv += '<div class="ticker-item" style="color:red">' + data.profile["changes"] + '</div>';
+          }
+          tickerdiv += '<div class="vl" style="height:30px; border-right:2px solid #3498db">';
+          tickerdiv += '</div';
+  
+          $('.ticker-move').append(tickerdiv);
+          $(tickerdiv).append(line);
         }
-        var tickerdiv;
-        var line;
-        for(i=0;i<100;i++){
-          $.ajax({
-             'url':'https://financialmodelingprep.com/api/v3/company/profile/'+symbols[i],
-             'type':'GET',
-             'crossDomain': true,
-             'datatype':'JSON',
-             success:function(data){
-              tickerdiv="";
-              tickerdiv += '<div class="ticker-item">'+data.symbol+'</div>';
-              tickerdiv += '<div class="ticker-item">'+data.profile["price"]+'</div>';
-             
-              if(data.profile["changes"]>0)
-              {
-   tickerdiv += '<div class="ticker-item" style="color:green">'+data.profile["changes"]+'</div>';
-              }
-              else
-              {
-                tickerdiv += '<div class="ticker-item" style="color:red">'+data.profile["changes"]+'</div>';
-              }
-              tickerdiv += '<div class="vl" style="height:30px; border-right:2px solid #3498db">';
-              tickerdiv += '</div';
-            
-            $('.ticker-move').append(tickerdiv);
-               $(tickerdiv).append(line);
-              }
-             });
-      }
-        }
-       });
+      });
+      setTimeout(function () {
+        prntticker(j + 1);
+      }, 5000);
+    }
+  
+    prntticker(0)
+  
   }
   symbolList();
 /**

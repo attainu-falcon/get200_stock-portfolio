@@ -104,8 +104,8 @@ function majorindexes(){
         var List = data.sectorPerformance;
         for(var i=0;i<data.sectorPerformance.length;i++){
           $('#list-item-e').append('<div class="col-4"><div class="card">\
-                       <div class="card-header bg-dark text-white text-center"><h3>'+List[i].sector+'</h3></div>\
-                        <div class="card-body bg-info text-white text-center"><h5 class="card-title"> Changes Percentage : '+List[i].changesPercentage+'</h5></div></div></div>')
+                       <div class="card-header bg-dark text-white text-center"><h3>'+List[i].name+'</h3></div>\
+                        <div class="card-body bg-info text-white text-center"><h5 class="card-title"> Changes Percentage : '+List[i].change+'</h5></div></div></div>')
         }
       }
     });

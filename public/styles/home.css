@@ -15,7 +15,7 @@
  visibility: visible;
 }
 @keyframes ticker {
-    0% { transform: translate3d(0, 0, 0); }
+    0% { transform: translate3d(0%, 0, 0); }
     100% { transform: translate3d(-100%, 0, 0); }
   }
   .tcontainer{
@@ -78,4 +78,23 @@
 .dropdown-item:hover{
   background:darkslategrey;
   color: white
+}
+::-webkit-scrollbar-track
+{
+  
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+::-webkit-scrollbar
+{
+  width: 10px;
+  background-color: #F5F5F5;
+}
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
 }
